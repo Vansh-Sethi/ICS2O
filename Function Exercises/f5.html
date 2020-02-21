@@ -1,0 +1,186 @@
+<!-- Javascript -->
+<script>
+
+var fruitInpute = '';
+function radioInput(fruit) {
+    fruitInpute = fruit;
+    console.log(fruitInpute);
+}
+
+function Potato() {
+
+    // Grabbing all variables (12 of them)
+    var nameInput = document.getElementById("nameInput").value;
+    var ageInput = document.getElementById("ageInput").value;
+    var genderInput = document.getElementById("genderInput").value;
+    var mathInput = document.getElementById("mathInput").value;
+    var happyInput = document.getElementById("happyInput").value;
+    var bornInput = document.getElementById("bornInput").value;
+    var dayInput = document.getElementById("dayInput").value;
+    var fruitInput = fruitInpute;
+    var sliderInput = document.getElementById("sliderInput").value;
+    // Colour returns hexidecimal (just a note to remember)
+    var colourInput = document.getElementById("colourInput").value;  
+    var secretInput = document.getElementById("wordInput").value;  
+    var quizInput = document.getElementById("quizInput").value;  
+
+
+    // Using a variety of combinations to determine what potato someone is (A little satire)
+    if (ageInput >= 30 && (genderInput == 'Male' || genderInput == "Female") && mathInput >= 10) {
+        document.getElementById("imageOutput").src = "assets/russet.jpg";
+        document.getElementById("outputText").innerHTML = "You are a Russet Potato! A Conventional Potato.";
+    }
+    else if (quizInput == "No") {
+        document.getElementById("imageOutput").src = "assets/mean.png";
+        document.getElementById("outputText").innerHTML = "You are a Mean Potato. How Rude!";
+    }
+    else if (sliderInput > 5 && secretInput.length > 5) {
+        document.getElementById("imageOutput").src = "assets/ninja.png";
+        document.getElementById("outputText").innerHTML = "You are a Ninja Potato. SHHHH!";
+    }
+    else if (bornInput.split("-")[0] <= "2010" && dayInput.split(":")[0] <= 12) {
+        document.getElementById("imageOutput").src = "assets/young.jpg";
+        document.getElementById("outputText").innerHTML = "You are a Young Potato. Keep on Growing!";
+    }
+    else if (fruitInput == "mango") {
+        document.getElementById("imageOutput").src = "assets/mango.jpg";
+        document.getElementById("outputText").innerHTML = "You are a Mango Potato. How Unsual!";
+    }
+    else if (mathInput > 90) {
+        document.getElementById("imageOutput").src = "assets/smart.jpg";
+        document.getElementById("outputText").innerHTML = "You are a Smart Potato. Congrats on the Math Mark!";
+    }
+    else if (happyInput == true) {
+        document.getElementById("imageOutput").src = "assets/happy.jpg";
+        document.getElementById("outputText").innerHTML = "You are a Happy Potato. Keep on going!";
+    }
+    else if (nameInput.length >= 0 && colourInput == "#000000") {
+        document.getElementById("imageOutput").src = "assets/unorginal.jpg";
+        document.getElementById("outputText").innerHTML = "You are an Unorginal Potato. Did you even take the quiz?";
+    }
+
+}
+
+
+
+</script>
+
+<!-- CSS / Styling -->
+<style>
+
+#titleFont {
+    font-size: 5vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-decoration: underline red;
+}
+
+.inputFieldText {
+    font-size: 2vw;
+    text-decoration: underline red;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 15;
+}
+
+.inputField {
+    border-color: red;
+    width: 15vw;
+}
+
+.inputRadioText {
+    font-size: 1vw;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 0;
+}
+
+.inputRadio{
+    border-color: red;
+}
+
+#userButton {
+    text-align: center;
+    border: 5px solid red;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 5px;
+    text-decoration: none;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#userButton:visited:hover {
+    color: black;
+}
+
+#userButton:hover {
+    color: black;
+}
+
+#userButton:visited {
+    color:black;
+}
+
+#outputText {
+    font-size: 5vw;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+</style>
+
+<!-- HTML -->
+<html>
+
+<body>
+
+    <div style="text-align: center;">
+        <p id="titleFont">What Type of Potato are you?</p>
+    </div>
+
+    <div style="text-align: center;">
+    <form>
+        <span class="inputFieldText">Name:</span> <input id="nameInput" type="text" class="inputField"><br><br>
+        <span class="inputFieldText">Age:</span> <input id="ageInput" type="number" class="inputField"><br><br>
+        <span class="inputFieldText">Gender:</span> <select id="genderInput" class="inputField">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+            <option>Prefer not to say</option>
+        </select><br><br>
+        <span class="inputFieldText">Math Mark:</span> <input id="mathInput" type="number" class="inputField"><br><br>
+        <span class="inputFieldText">Are you Happy Today:</span> <input id="happyInput" type="checkbox" value="true"><br><br>
+        <span class="inputFieldText">Day You Were Born:</span> <input id="bornInput" type="date" class="inputField"><br><br>
+        <span class="inputFieldText">Favourite Time of Day:</span> <input id="dayInput" type="time" class="inputField"><br><br>
+        <span class="inputFieldText">Favourite Fruit</span> <br>
+        <input onclick="radioInput(this.value)" id="fruitInput" type="radio" class="inputRadio" name="fruit" value="banana"><span class="inputRadioText">Banana</span><br>
+        <input onclick="radioInput(this.value)" type="radio" class="inputRadio" name="fruit" value="orange"><span class="inputRadioText">Orange</span><br>
+        <input onclick="radioInput(this.value)" type="radio" class="inputRadio" name="fruit" value="apple"><span class="inputRadioText">Apple</span><br>
+        <input onclick="radioInput(this.value)" type="radio" class="inputRadio" name="fruit" value="pear"><span class="inputRadioText">Pear</span><br>
+        <input onclick="radioInput(this.value)" type="radio" class="inputRadio" name="fruit" value="mango"><span class="inputRadioText">Mango</span><br><br>
+        <span class="inputFieldText">Slider (Pick a Position):</span> <input id="sliderInput" type="range" min="0" max="10" class="inputField"><br><br>
+        <span class="inputFieldText">Pick a colour:</span> <input id="colourInput" type="color"  class="inputField"><br><br>
+        <span class="inputFieldText">Secret Word:</span> <input id="wordInput" type="password" class="inputField"><br><br>
+        <span class="inputFieldText">Enjoyed the Quiz?</span> <select id="quizInput" class="inputField">
+            <option>Yes</option>
+            <option>No</option>
+            <option>It was the best ever!</option>
+            <option>Prefer not to say</option>
+        </select>
+    </form>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <a onclick="Potato()" id="userButton" href="#">Enter.</a>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <img id="imageOutput">
+        <p id="outputText"></p>
+    </div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,126 @@
+<!-- JAVASCRIPT CODE -->
+<script>
+
+function AreaofCircle(radius) {
+    return Math.round(Math.PI * radius * radius);
+}
+
+function Calculate() {
+    var radius = document.getElementById("userInput").value;
+    document.getElementById("outputText").innerHTML = 'The area of your circle is about: <span id="important">' + AreaofCircle(radius) + "</span>"; 
+}
+
+</script>
+
+<!-- CSS CODE -->
+<style>
+
+body {
+    overflow: hidden;
+}
+
+#important {
+    color: white;
+    font-weight: 1000;
+}
+
+#centerText {
+    text-align: center;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 8vh;
+    color: white;
+}
+
+#userInput {
+    font-size: 1vw;
+    font-weight: 600;
+    width: 50vw;
+    border: 5px solid white;
+    border-radius: 10px;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#userButton {
+    text-align: center;
+    border: 5px solid white;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 5px;
+    text-decoration: none;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#userButton:visited:hover {
+    color: black;
+}
+
+#userButton:hover {
+    color: black;
+}
+
+#userButton:visited {
+    color:white;
+}
+
+#valign {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#bgImage {
+    z-index: -1;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(1px) brightness(0.3);
+}
+
+#outputText {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 5vh;
+}
+
+
+</style>
+
+
+<!-- HTML CODE -->
+<html>
+
+<head>
+    <title>Function Exercise #1</title>
+</head>
+
+<body>
+
+<!-- Background Image -->
+    <img id="bgImage" src="assets/f1Image.jpg">
+
+<!-- Input Stuff -->
+    <div id="valign">
+        <p id="centerText">Calculate the Area of a Circle. Enter a Radius.</p>
+        <div style="text-align: center;">
+        <input id="userInput" type="number"></input><br><br><br><br>
+        </div>
+        <div style="text-align: center;">
+            <a onclick="Calculate()" id="userButton" href="#">Enter.</a>
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <p id="outputText"></p>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+
+
+

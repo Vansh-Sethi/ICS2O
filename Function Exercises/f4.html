@@ -1,0 +1,168 @@
+<!-- JAVASCRIPT CODE -->
+<script>
+
+function Operation() {
+    var operation = document.getElementById("userInput").value;
+    var width = document.getElementById("inputWidth").value;
+    var height = document.getElementById("inputHeight").value;
+    console.log(height);
+    if (operation == "Area") {
+        document.getElementById("outputText").innerHTML = "The <span id='important'>area</span> of your rectangle is: <span id='important'>" + (width*height) + "</span>";
+    }
+    else if (operation == "Perimeter") {
+        document.getElementById("outputText").innerHTML = "The <span id='important'>perimeter</span> of your rectangle is: <span id='important'>" + (width*2 + height*2) + "</span>";
+    }
+    else if (operation == "Diagonal") {
+        document.getElementById("outputText").innerHTML = "The <span id='important'>diagonal</span> (hypothenuse) of your rectangle is about: <span id='important'>" + (Math.floor(Math.sqrt(width**2 + height**2))) + "</span>";
+    }
+}
+
+</script>
+
+<!-- CSS CODE -->
+<style>
+
+body {
+    overflow: hidden;
+}
+
+#important {
+    color: greenyellow;
+    font-weight: 1000;
+}
+
+#centerText {
+    text-align: center;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 8vh;
+    color: white;
+}
+
+#userInput {
+    font-size: 1vw;
+    font-weight: 600;
+    width: 50vw;
+    border: 5px solid white;
+    border-radius: 10px;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#userButton {
+    text-align: center;
+    border: 5px solid white;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 5px;
+    text-decoration: none;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#userButton:visited:hover {
+    color: black;
+}
+
+#userButton:hover {
+    color: black;
+}
+
+#userButton:visited {
+    color:white;
+}
+
+#valign {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#bgImage {
+    z-index: -1;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(1px) brightness(0.3);
+}
+
+#outputText {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 5vh;
+}
+
+#inputHeight {
+    font-size: 1vw;
+    font-weight: 600;
+    width: 30vw;
+    border: 5px solid white;
+    border-radius: 10px;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#inputWidth {
+    font-size: 1vw;
+    font-weight: 600;
+    width: 30vw;
+    border: 5px solid white;
+    border-radius: 10px;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+
+</style>
+
+
+<!-- HTML CODE -->
+<html>
+
+<head>
+    <title>Function Exercise #4</title>
+</head>
+
+<body>
+
+<!-- Background Image -->
+    <img id="bgImage" src="assets/f4Image.jpg">
+
+<!-- Input Stuff -->
+    <div id="valign">
+        <p id="centerText">Rectangles: Select Operation.</p>
+
+        <div style="text-align: center;">
+        <select id="userInput" name="Operation">
+            <option name="area" id="area">Area</option>
+            <option name="perim" id="perim">Perimeter</option>
+            <option name="diagonal" id="diagonal">Diagonal</option>
+        </select>
+        <br><br><br>
+        </div>
+
+        <div style="text-align: center;">
+        <span style="color: white; font-size: 2vw; font-family: Verdana, Geneva, Tahoma, sans-serif;">Height:</span> <input type="number" id="inputHeight">
+        <br><br>
+        </div>
+
+        <div style="text-align: center;">
+        <span style="color: white; font-size: 2vw; font-family: Verdana, Geneva, Tahoma, sans-serif;">Width:</span> <input type="number" id="inputWidth">
+        <br><br><br><br>
+        </div>
+
+        <div style="text-align: center;">
+            <a onclick="Operation()" id="userButton" href="#">Enter.</a>
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <p id="outputText"></p>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+
+
+

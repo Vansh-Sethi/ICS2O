@@ -1,0 +1,115 @@
+<!-- JAVASCRIPT CODE -->
+<script>
+
+var randomWords = ["warlike","stocking","psychedelic","unbiased",
+"adhesive","subdued","oval","challenge","shoe","plausible","quartz","channel"]
+
+function RandomWord() {
+    var randomIndex = Math.floor(Math.random() * (randomWords.length));
+    document.getElementById("outputText").innerHTML = 'Your random word is: <span id="important">' + randomWords[randomIndex] + '</span>';
+}
+
+</script>
+
+<!-- CSS CODE -->
+<style>
+
+body {
+    overflow: hidden;
+}
+
+#important {
+    color: white;
+    font-weight: 1000;
+}
+
+#centerText {
+    text-align: center;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 8vh;
+    color: white;
+}
+
+
+
+#userButton {
+    text-align: center;
+    border: 5px solid white;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 5px;
+    text-decoration: none;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#userButton:visited:hover {
+    color: black;
+}
+
+#userButton:hover {
+    color: black;
+}
+
+#userButton:visited {
+    color:white;
+}
+
+#valign {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#bgImage {
+    z-index: -1;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(1px) brightness(0.3);
+}
+
+#outputText {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 5vh;
+}
+
+
+</style>
+
+
+<!-- HTML CODE -->
+<html>
+
+<head>
+    <title>Function Exercise #1</title>
+</head>
+
+<body>
+
+<!-- Background Image -->
+    <img id="bgImage" src="assets/f2Image.jpg">
+
+<!-- Input Stuff -->
+    <div id="valign">
+        <p id="centerText">Generate your Secret Word.</p>
+        <div style="text-align: center;">
+            <a onclick="RandomWord()" id="userButton" href="#">Enter.</a>
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <p id="outputText"></p>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+
+
+

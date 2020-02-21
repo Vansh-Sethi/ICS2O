@@ -1,0 +1,162 @@
+<!-- JAVASCRIPT CODE -->
+<script>
+
+function mathQuestion() {
+    var operation = Math.floor(Math.random() * 3) + 1;
+    const first = Math.floor(Math.random()*50) + 1;
+    const second = Math.floor(Math.random()*50) + 1;
+    if (operation == 1) {
+       var answer = prompt("What is " + String(first) + " " + "x" + " " + String(second) + "?"); 
+       if (answer == (first*second)) {
+         document.getElementById("outputText").innerHTML = '<span id="correct">Correct Answer!</span> ' + 
+         String(first) + " " + "x" + " " + String(second) + "= " + (first*second);
+       }
+       else {
+         document.getElementById("outputText").innerHTML = '<span id="wrong">Wrong Answer :(</span> ' + 
+         String(first) + " " + "x" + " " + String(second) + "= " + (first*second);
+       }
+    }
+    else if (operation == 2) {
+       var answer = prompt("What is " + String(first) + " " + "+" + " " + String(second) + "?"); 
+       if (answer == (first+second)) {
+         document.getElementById("outputText").innerHTML = '<span id="correct">Correct Answer!</span> ' + 
+         String(first) + " " + "+" + " " + String(second) + "= " + (first+second);
+       }
+       else {
+         document.getElementById("outputText").innerHTML = '<span id="wrong">Wrong Answer :(</span> ' + 
+         String(first) + " " + "+" + " " + String(second) + "= " + (first+second);
+       }
+    }
+    else {
+       var answer = prompt("What is " + String(first) + " " + "-" + " " + String(second) + "?"); 
+       if (answer == (first-second)) {
+         document.getElementById("outputText").innerHTML = '<span id="correct">Correct Answer!</span> ' + 
+         String(first) + " " + "-" + " " + String(second) + "= " + (first-second);
+       }
+       else {
+         document.getElementById("outputText").innerHTML = '<span id="wrong">Wrong Answer :(</span> ' + 
+         String(first) + " " + "-" + " " + String(second) + "= " + (first-second);
+       }
+    }
+    
+
+}
+
+</script>
+
+<!-- CSS CODE -->
+<style>
+
+body {
+    overflow: hidden;
+}
+
+#correct {
+    color: greenyellow;
+    font-weight: 1000;
+}
+
+#wrong {
+    color: red;
+    font-weight: 1000;
+}
+
+
+#centerText {
+    text-align: center;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 8vh;
+    color: white;
+}
+
+#userInput {
+    font-size: 1vw;
+    font-weight: 600;
+    width: 50vw;
+    border: 5px solid white;
+    border-radius: 10px;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#userButton {
+    text-align: center;
+    border: 5px solid white;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 5px;
+    text-decoration: none;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+#userButton:visited:hover {
+    color: black;
+}
+
+#userButton:hover {
+    color: black;
+}
+
+#userButton:visited {
+    color:white;
+}
+
+#valign {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#bgImage {
+    z-index: -1;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(1px) brightness(0.3);
+}
+
+#outputText {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 5vh;
+}
+
+
+</style>
+
+
+<!-- HTML CODE -->
+<html>
+
+<head>
+    <title>Function Exercise #3</title>
+</head>
+
+<body>
+
+<!-- Background Image -->
+    <img id="bgImage" src="assets/f1Image.jpg">
+
+<!-- Input Stuff -->
+    <div id="valign">
+        <p id="centerText">Random Math Question.</p>
+        
+        <div style="text-align: center;">
+            <a onclick="mathQuestion()" id="userButton" href="#">Generate</a>
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <p id="outputText"></p>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+
+
+
