@@ -1,0 +1,231 @@
+<!--Note that the website is not responsive to all resolutions... I should've used vw and vh for the units to achieve 
+full responsiveness. Please open in full screen if possible.-->
+
+<html>
+<head>
+    <title>Vansh's Menu</title>
+    <style>
+   
+    body {
+        margin: 0;
+        background: black;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 800;
+    }
+
+    /* Style for the navigation bar at the top*/
+
+    header {
+        /*setting colour of navigation bar*/
+        background: black;
+    }
+
+
+    /* (ignore)
+    header::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+    */
+
+    .top {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    nav {
+        float: right;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0px;
+        list-style: none;
+    }
+
+    nav li {
+        /*inline-block gives the horizontal style of the items in the navigation bar*/
+        display: inline-block;
+        margin-left: 50px;
+        padding-top: 15px;
+    }
+
+    /*sytle for the actual header links, added some underline and colour*/
+    nav a {
+        text-decoration: underline;
+        text-decoration-color: greenyellow;
+        color: white;
+    }
+
+    /*referencing the <span> tags so I can specifically change the colour of the periods in titles.*/
+    .dot {
+        color: greenyellow;
+    }
+
+
+    .logo {
+        color: white;
+        float: left;
+    }
+
+    #name {
+        color: white;
+        float: right;
+        margin-right: 150px;
+        font-size: 100px;
+        margin-top: -600px;
+        position: relative;
+    }
+
+    #name:hover {
+        color:greenyellow;
+    } 
+
+    .me {
+        /* z-index is the position on the screen relative to other objects layered over eachother
+        I made it a big number so the picture would be over the video.*/
+        z-index: 100000000;
+        float: left;
+        padding-left:30vh;
+        margin-top: -800px;
+        position:relative;
+        
+        
+    }
+
+    .head_ing {
+        padding-left: 30px;
+        color: white;
+        font-size: 70px;
+        border-left: 30px solid rgb(0, 255, 42);
+    }
+
+    .head_ing:hover {
+        color:greenyellow;
+    }
+
+    /*styles for the buttons that link to exercises*/
+    .section {
+        color: white;
+        text-decoration: none;
+        margin-left: 40px;
+        border: 5px solid rgb(0, 255, 42);
+        padding: 10px;
+    }
+
+    /*when the condition hover is met (pointer on to of object), the colour of the button changes creates a roll-over
+    effect */
+    .section:hover {
+        color: white;
+        background:rgb(0, 255, 42);
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <!--Standard procedure for creating a navagation bar-->
+
+    <!--Nav container-->
+    <header>
+        <div class="top">
+            <p class="logo">VANSH<span class="dot">.</span> SETHI<span class="dot">.</span></p>
+            
+            <!--<nav> tag is a tag that declares a navigation bar and uses a list for the
+            items in the navigation bar-->
+            <nav>
+                <ul>
+                    <li><a href="#HtmlExercises">HTML EXERCISES</a></li>
+                    <li><a href="#HTMLTables">HTML TABLES</a></li>
+                    <li><a href="#CSSExercises">CSS EXERCISES</a></li>
+                    <li><a href="#HTMLforms">HTML FORMS</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    
+    <!--Video for background, autoplay properties let's it play automatically and loop allows it to keep
+    going. (credits to timestorm films for the video)-->
+    <video width="100%"autoplay loop muted>
+        <source src="timelapse.mp4" type="video/mp4">
+    </video>
+
+    <!--My image and name displayed on screen. Used <span> tag to reference just the period so I could
+    change the color using css.-->
+    <h1 id="name">VANSH<span class="dot">.</span> SETHI<span class="dot">.</span></h1>
+    <img src="vansh_circle.png" height="500px" width="500px" class="me">
+
+    <br>
+    <br>
+
+    <!--Tables that links to all the exercises-->
+    <!--Could've used table headers... but used new tables as it was easier to 
+    see the code and position the tables to where I want.-->
+
+    <!--HTML Exercises table-->
+    <h1 class="head_ing" id="HtmlExercises">HTML EXERCISES<span class="dot">.</span></h1>
+    <table cellpadding="22">
+        <tr>
+            <td><a href="html/1.html" class="section">1st Exercise</a></td>
+            <td><a href="html/2.html" class="section">2nd Exercise</a></td>
+        </tr>
+        <tr>
+            <td><a href="html/3.html" class="section">3rd Exercise</a></td>
+            <td><a href="html/4.html" class="section">4th Exercise</a></td>
+        </tr>
+        <tr>
+            <td><a href="html/5.html" class="section">5th Exercise</a></td>
+            <td><a href="html/6.html" class="section">6th Exercise</a></td>
+        </tr>
+        <tr>
+            <td><a href="html/7.html" class="section">7th Exercise</a></td>
+        </tr>
+    </table>
+
+
+    <!--HTML Tables table-->
+    <h1 class="head_ing" id="HTMLTables">HTML TABLES<span class="dot">.</span></h1>
+    <table cellpadding="22">
+        <tr>
+            <td><a href="HTMLTABLES/1.html" class="section">1st Table</a></td>
+            <td><a href="HTMLTABLES/2.html" class="section">2nd Table</a></td>
+        </tr>
+        <tr>
+            <td><a href="HTMLTABLES/3.html" class="section">3rd Table</a></td>
+            <td><a href="HTMLTABLES/4.html" class="section">4th Table</a></td>
+        </tr>
+        <tr>
+            <td><a href="HTMLTABLES/5.html" class="section">5th Table</a></td>
+        </tr>
+    </table>
+
+    <!--CSS Exercises table-->
+    <h1 class="head_ing" id="CSSExercises">CSS EXERCISES<span class="dot">.</span></h1>
+    <table cellpadding="22">
+        <tr>
+            <td><a href="CSS/1.html" class="section">1st Exercise</a></td>
+            <td><a href="CSS/2.html" class="section">2nd Exercise</a></td>
+        </tr>
+        <tr>
+            <td><a href="CSS/3.html" class="section">3rd Exercise</a></td>
+            <td><a href="CSS/4.html" class="section">4th Exercise</a></td>
+        </tr>
+    </table>
+
+    <!-- HTML Forms table-->
+    <h1 class="head_ing" id="HTMLforms">HTML FORMS<span class="dot">.</span></h1>
+    <table cellpadding="22">
+        <tr>
+            <td><a href="HTMLFORM/regForm.html" class="section">RegForm</a></td>
+        </tr>
+    </table>
+
+    
+
+    
+</body>
+
+</html>
