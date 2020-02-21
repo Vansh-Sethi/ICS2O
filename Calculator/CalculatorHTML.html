@@ -1,0 +1,257 @@
+<script>
+var signChoice;
+var num1 = 0;
+var num2 = 0;
+
+// On click of button to add number to screen
+function addNumToScreen(num) {
+    document.getElementById("screen").innerHTML += num;
+}
+
+// Setting number and sign for operation
+function setSign(sign) {
+    num1 = Number(document.getElementById("screen").innerHTML);
+    document.getElementById("screen").innerHTML = "";
+    signChoice = sign;
+    document.getElementById("upperScreen").innerHTML += " " + num1 + " " + sign;
+
+}
+
+// Switch Sign of Current Integer
+function negativePositive() {
+  if (document.getElementById("screen").innerHTML.includes("-") == true) {
+    var x = document.getElementById("screen").innerHTML;
+    document.getElementById("screen").innerHTML = Math.abs(x);
+  }
+  else {
+    var x = document.getElementById("screen").innerHTML;
+    var y = "-" + x;
+    document.getElementById("screen").innerHTML = y;
+  }
+}
+
+// Trig operators
+function trig(operator) {
+  var x = Number(document.getElementById("screen").innerHTML);
+  if (operator == "sin") {
+    document.getElementById("screen").innerHTML = Math.sin(x*(Math.PI/180));
+  }
+  else if (operator == "cos") {
+    document.getElementById("screen").innerHTML = Math.cos(x*(Math.PI/180));
+  }
+  else if (operator == "tan") {
+    document.getElementById("screen").innerHTML = Math.tan(x*(Math.PI/180));
+  }
+}
+
+// Squareroot Function
+function squareroot() {
+  var x = Number(document.getElementById('screen').innerHTML);
+  if (document.getElementById("screen").innerHTML.includes("-") == true) {
+    document.getElementById("screen").innerHTML = "Error"
+  }
+  else {
+    document.getElementById("screen").innerHTML = Math.sqrt(x);
+  }
+}
+
+// Answer
+function equalPressed() {
+    num2 = Number(document.getElementById("screen").innerHTML);
+    if (signChoice == "x") {
+        document.getElementById("screen").innerHTML = num1*num2;
+    }
+    else if (signChoice == "-") {
+        document.getElementById("screen").innerHTML = num1-num2;
+    }
+    else if (signChoice == "/") {
+        document.getElementById("screen").innerHTML = num1/num2;
+    }
+    else if (signChoice == "+") {
+        document.getElementById("screen").innerHTML = num1+num2;
+    }
+    document.getElementById("upperScreen").innerHTML = "";
+}
+
+// Clear Button to Clear Everything
+function resetScreen() {
+  document.getElementById("screen").innerHTML = "";
+  num1 = 0;
+  num2 = 0;
+}
+</script>
+
+<style>
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.container {
+  max-width: 25em;
+}
+
+body {
+  align-items: center;
+  background: rgb(14,238,255);
+  background: linear-gradient(16deg, rgba(14,238,255,1) 0%, rgba(0,255,11,0.5573938193441439) 100%);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+.calculator {
+  border-radius: 12px;
+  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  max-width: 25em;
+  overflow: hidden;
+}
+
+#upperScreen {
+  background-color: #342d59;
+  color: gray;
+  font-size: 1em;
+  padding: 0.7em 0.7em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  text-align: right;
+  grid-column: 4;
+  height: 1em;
+}
+
+#screen {
+  background-color: #342d59;
+  color: #fff;
+  font-size: 2em;
+  padding: 0.5em 0.5em;
+  padding-top: 0;
+  text-align: right;
+  grid-column: 4;
+  height: 1.2em;
+}
+
+.keys {  
+    background-color: #999;
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: repeat(6, 1fr);
+    
+}
+
+
+.keys > * {
+  background-color: #f1734e;
+  color: white;
+  padding: 1.2em 1.2em;
+  position: relative;
+  text-align: center;
+}
+
+
+input,
+button { 
+  border: 0;
+  border-radius: 0;
+  
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  outline: none;
+  appearance: none;
+  text-align: left;
+}
+
+/* Button Stylings */
+#equalButton {
+  grid-column: span 2;
+  background-color:#342d59;
+}
+
+.row1 {
+  background-color: rgb(255, 137, 91);
+}
+
+.row2 {
+  background-color: rgb(255, 125, 73);
+}
+
+.row3 {
+  background-color: rgb(255, 111, 55);
+}
+
+.row4 {
+  background-color: rgb(255, 96, 34);
+}
+
+.row5 {
+  background-color: rgb(255, 82, 14);
+}
+
+
+
+</style>
+
+<html>
+
+<body>
+
+<div class="container">
+<div class="calculator">
+
+    <!-- Display -->
+    <div class = "grid-item-screen" id="upperScreen"></div>
+    <div class = "grid-item-screen" id="screen"></div>
+    
+    
+    <!-- Buttons -->
+    <div class="keys">
+
+        <button onclick="setSign('%')" class="row1">%</button>
+        <button onclick="document.getElementById('screen').innerHTML = Math.pow(Number(document.getElementById('screen').innerHTML),2)" class="row1">x&sup2</button>
+        <button onclick="setSign('%')" class="row1">%</button>
+        <button onclick="negativePositive()" class="row1">+/-</button>
+        <button onclick="resetScreen()" class="row1">C</button>
+        <button onclick="setSign('/')" class="row1">/</button>
+
+        <button onclick="setSign('%')" class="row2">%</button>
+        <button onclick="squareroot()" class="row2">&#8730x</button>
+        <button onclick="addNumToScreen(7)" class="row2">7</button>
+        <button onclick="addNumToScreen(8)" class="row2">8</button>
+        <button onclick="addNumToScreen(9)" class="row2">9</button>
+        <button onclick="setSign('x')" class="row2">x</button>
+
+        <button onclick="setSign('%')" class="row3">%</button>
+        <button onclick="trig('sin')" class="row3">sin(x)</button>
+        <button onclick="addNumToScreen(4)" class="row3">4</button>
+        <button onclick="addNumToScreen(5)" class="row3">5</button>
+        <button onclick="addNumToScreen(6)" class="row3">6</button>
+        <button onclick="setSign('-')" class="row3">-</button>
+
+        <button onclick="setSign('%')" class="row4">%</button>
+        <button onclick="trig('cos')" class="row4">cos(x)</button>
+        <button onclick="addNumToScreen(1)" class="row4">1</button>
+        <button onclick="addNumToScreen(2)" class="row4">2</button>
+        <button onclick="addNumToScreen(3)" class="row4">3</button>
+        <button onclick="setSign('+')" class="row4">+</button>
+
+        <button onclick="setSign('%')" class="row5">%</button>
+        <button onclick="trig('tan')" id="zeroButton" class="row5">tan(x)</button>
+        <button onclick="addNumToScreen(0)" id="zeroButton" class="row5">0</button>
+        <button onclick="addNumToScreen('.')" class="row5">.</button>
+        <button onclick="equalPressed()" id="equalButton" class="row5">=</button>
+    </div>
+   
+</div>
+</div>
+
+
+</body>
+
+
+
+
+</html>
