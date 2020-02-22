@@ -1,0 +1,417 @@
+<!-- Web Calculator Created by Vansh Sethi -->
+
+<!-- FUNCTIONALITY / JAVASCRIPT -->
+<script>
+var last_number = 0;
+var last_operation = '';
+
+
+// On click of button to add number to screen
+function addNumToScreen(num) {
+    if (document.getElementById("screen").innerHTML.includes("Error") || document.getElementById("screen")=="NaN") {
+      document.getElementById("screen").innerHTML = num;
+      return 0;
+    }
+    if (document.getElementById("screen").innerHTML.includes("Infinity")) {
+      document.getElementById("screen").innerHTML = num;
+      return 0;
+    }
+
+    // If the screen is already 0
+    if (num > 0 && (document.getElementById('screen').innerHTML == '0')) {
+      document.getElementById("screen").innerHTML = num;
+      return 0;
+    }
+    // Essentially returning nothing if two zeros
+    if (num == 0 && (document.getElementById('screen').innerHTML == '0')) {
+      return 0;
+    } 
+    // Value for pi
+    if (num == 'pi') {
+      document.getElementById("screen").innerHTML = Math.PI;
+    }
+    // Value for Eulers Number
+    else if (num=="e") {
+      document.getElementById("screen").innerHTML = Math.E;
+    }
+    // Value for 1/x where x is num on screen
+    else if (num=='1/x') {
+      document.getElementById("screen").innerHTML = 1/Number(document.getElementById("screen").innerHTML)
+    }
+    // Value for everything else
+    else {
+      document.getElementById("screen").innerHTML += num;
+    }
+}
+
+// Setting number and sign for operation
+function setSign(sign) {
+    x = Number(document.getElementById("screen").innerHTML);
+    document.getElementById("screen").innerHTML = "";
+    // signChoice = sign;
+    document.getElementById("upperScreen").innerHTML += " " + x + " " + sign;
+
+}
+
+// Switch Sign of Current Integer
+function negativePositive() {
+  if (document.getElementById("screen").innerHTML.includes("-") == true) {
+    var x = document.getElementById("screen").innerHTML;
+    document.getElementById("screen").innerHTML = Math.abs(x);
+  }
+  else {
+    var x = document.getElementById("screen").innerHTML;
+    var y = "-" + x;
+    document.getElementById("screen").innerHTML = y;
+  }
+}
+
+// Trig operators
+function trig(operator) {
+  var x = Number(document.getElementById("screen").innerHTML);
+  if (operator == "sin") {
+    document.getElementById("screen").innerHTML = Math.sin(x*(Math.PI/180));
+  }
+  else if (operator == "cos") {
+    document.getElementById("screen").innerHTML = Math.cos(x*(Math.PI/180));
+  }
+  else if (operator == "tan") {
+    document.getElementById("screen").innerHTML = Math.tan(x*(Math.PI/180));
+  }
+  else if (operator == "sin-1") {
+    document.getElementById("screen").innerHTML = Math.asin(x*(Math.PI/180));
+  }
+  else if (operator == "cos-1") {
+    document.getElementById("screen").innerHTML = Math.acos(x*(Math.PI/180));
+  }
+  else if (operator == "tan-1") {
+    document.getElementById("screen").innerHTML = Math.atan(x*(Math.PI/180));
+  }
+}
+
+// Square Function
+function squareroot() {
+  var x = Number(document.getElementById('screen').innerHTML);
+  if (document.getElementById("screen").innerHTML.includes("-") == true) {
+    document.getElementById("screen").innerHTML = "Error"
+  }
+  else {
+    document.getElementById("screen").innerHTML = Math.sqrt(x);
+  }
+}
+
+// Third Root Function
+function thirdroot() {
+  var x = Number(document.getElementById('screen').innerHTML);
+  if (document.getElementById("screen").innerHTML.includes("-") == true) {
+    document.getElementById("screen").innerHTML = "Error"
+  }
+  else {
+    document.getElementById("screen").innerHTML = Math.pow(x,1/3);
+  }
+}
+
+// When the equal button is pressed
+function equalPressed() {
+
+  // If there isn't anything on the screen, do nothing
+  if (document.getElementById("screen").innerHTML == "" || document.getElementById("screen").innerHTML == "Error") {
+    return 0;
+  }
+
+  // If there wasn't an operation chose, just do the last one (A normal calculator does this)
+  else if (document.getElementById("upperScreen").innerHTML.length <= 1) {
+    total = equate(Number(document.getElementById('screen').innerHTML),last_number,last_operation);
+  }
+
+  // Calculating all operations that were listed in order
+  else {
+    var everything = document.getElementById("upperScreen").innerHTML.split(" ");
+    everything.push(document.getElementById("screen").innerHTML);
+    everything.shift()
+    var total = 0;
+    console.log(everything);
+    // Used a for loop to go over all the operations 
+    for(i = 0; i < everything.length-2; i+=2) {
+      if (i == 0) {
+        var a = Number(everything[0]);
+        var b = Number(everything[2]);
+        var sign = everything[1];
+        total = equate(a,b,sign);
+        last_number = b;
+        last_operation = sign;
+      }
+      else {
+        var a = total;
+        var b = Number(everything[i+2]);
+        var sign = everything[i+1];
+        total = equate(a,b,sign);
+        last_number = b;
+        last_operation = sign;
+      }
+    }
+  }
+  document.getElementById("screen").innerHTML = total;
+  document.getElementById("upperScreen").innerHTML = '';
+}
+
+// Equate button for an operation
+function equate(num1,num2,signChoice) {
+    if (signChoice == "x") {
+        return num1*num2;
+    }
+    else if (signChoice == "-") {
+        return num1-num2;
+    }
+    else if (signChoice == "/") {
+        return num1/num2;
+    }
+    else if (signChoice == "+") {
+        return num1+num2;
+    }
+    if (signChoice == "%") {
+      return num1 % num2;
+    }
+    if (signChoice == "^") {
+      return Math.pow(num1,num2);
+    }
+}
+
+// 2nd Function
+function secondFunction(switch1) {
+  if (switch1 == 1) {
+    document.getElementById("sfunction").setAttribute( "onClick", "javascript: secondFunction(2);" );
+    // Change Trig Functions
+    document.getElementById("sine").innerHTML = "sin<sup>-1</sup>(x)"
+    document.getElementById("sine").setAttribute( "onClick", "javascript: trig('sin-1');" );
+    document.getElementById("cosine").innerHTML = "cos<sup>-1</sup>(x)"
+    document.getElementById("cosine").setAttribute( "onClick", "javascript: trig('cos-1');" );
+    document.getElementById("tangent").innerHTML = "tan<sup>-1</sup>(x)"
+    document.getElementById("tangent").setAttribute( "onClick", "javascript: trig('tan-1');" );
+
+    // Change x^2
+    document.getElementById("squarepower").innerHTML = "2<sup>x</sup>"
+    document.getElementById("squarepower").setAttribute( "onClick", "javascript: document.getElementById('screen').innerHTML = Math.pow(2,Number(document.getElementById('screen').innerHTML));" );
+
+    // Change root x
+    document.getElementById("root").innerHTML = "&#8731;x"
+    document.getElementById("root").setAttribute( "onClick", "javascript: thirdroot();" );
+
+  }
+  else if (switch1 == 2) {
+    document.getElementById("sfunction").setAttribute( "onClick", "javascript: secondFunction(1);" );
+    // Change Trig Functions
+    document.getElementById("sine").innerHTML = "sin(x)"
+    document.getElementById("sine").setAttribute( "onClick", "javascript: trig('sin');" );
+    document.getElementById("cosine").innerHTML = "cos(x)"
+    document.getElementById("cosine").setAttribute( "onClick", "javascript: trig('cos');" );
+    document.getElementById("tangent").innerHTML = "tan(x)"
+    document.getElementById("tangent").setAttribute( "onClick", "javascript: trig('tan');" );
+
+    // Change 2^x 
+    document.getElementById("squarepower").innerHTML = "x&sup2"
+    document.getElementById("squarepower").setAttribute( "onClick", "javascript: document.getElementById('screen').innerHTML = Math.pow(Number(document.getElementById('screen').innerHTML),2);" );
+
+    // Change third root
+    document.getElementById("root").innerHTML = "&#8730x"
+    document.getElementById("root").setAttribute( "onClick", "javascript: squareroot();" );
+  }
+}
+
+// Clear Button to Clear Everything
+function resetScreen() {
+  document.getElementById("screen").innerHTML = "";
+  num1 = 0;
+  num2 = 0;
+  questionSign = [];
+  question = [];
+  document.getElementById("upperScreen").innerHTML = '';
+}
+</script>
+
+<!-- STYLE / CSS -->
+<style>
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 25em;
+}
+
+body {
+  align-items: center;
+  background: rgb(14,238,255);
+  background: linear-gradient(16deg, rgba(14,238,255,1) 0%, rgba(0,255,11,0.5573938193441439) 100%);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+.calculator {
+  border-radius: 12px;
+  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  max-width: 25em;
+  overflow: hidden;
+}
+
+#upperScreen {
+  background-color: #342d59;
+  color: gray;
+  font-size: 1em;
+  padding: 0.7em 0.7em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  text-align: right;
+  grid-column: 4;
+  height: 1em;
+}
+
+#screen {
+  background-color: #342d59;
+  color: #fff;
+  font-size: 1.7em;
+  padding: 0.5em 0.5em;
+  padding-top: 0;
+  text-align: right;
+  grid-column: 4;
+  height: 1.2em;
+}
+
+.keys {  
+    background-color: #999;
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: repeat(6, 1fr);
+    
+}
+
+.keys > * {
+  background-color: #f1734e;
+  color: white;
+  padding: 1.2em 1.2em;
+  position: relative;
+  text-align: center;
+}
+
+input,
+button { 
+  border: 0;
+  border-radius: 0;
+  
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  outline: none;
+  appearance: none;
+  text-align: left;
+}
+
+/* Button Stylings */
+#equalButton {
+  grid-column: span 2;
+  background-color:#342d59;
+}
+
+.row1 {
+  background-color: rgb(255, 137, 91);
+}
+
+.row2 {
+  background-color: rgb(255, 125, 73);
+}
+
+.row3 {
+  background-color: rgb(255, 111, 55);
+}
+
+.row4 {
+  background-color: rgb(255, 96, 34);
+}
+
+.row5 {
+  background-color: rgb(255, 82, 14);
+}
+
+.row1:active {
+  background-color: #342d59;
+}
+.row2:active {
+  background-color: #342d59;
+}
+.row3:active {
+  background-color: #342d59;
+}
+.row4:active {
+  background-color: #342d59;
+}
+.row5:active {
+  background-color: #342d59;
+}
+</style>
+
+<!-- HTML -->
+<html>
+
+<body>
+
+<div class="container">
+<div class="calculator">
+
+    <!-- Display -->
+    <div class = "grid-item-screen" id="upperScreen"></div>
+    <div class = "grid-item-screen" id="screen"></div>
+    
+    
+    <!-- Buttons -->
+    <div class="keys">
+
+        <button id="sfunction" onclick="secondFunction(1)" class="row1">2nd</button>
+        <button id="squarepower" onclick="document.getElementById('screen').innerHTML = Math.pow(Number(document.getElementById('screen').innerHTML),2)" class="row1">x&sup2</button>
+        <button onclick="setSign('%')" class="row1">%</button>
+        <button onclick="negativePositive()" class="row1">+/-</button>
+        <button onclick="resetScreen()" class="row1">C</button>
+        <button onclick="setSign('/')" class="row1">/</button>
+
+        <button onclick="addNumToScreen('pi')" class="row2">&#960</button>
+        <button id="root" onclick="squareroot()" class="row2">&#8730x</button>
+        <button onclick="addNumToScreen(7)" class="row2">7</button>
+        <button onclick="addNumToScreen(8)" class="row2">8</button>
+        <button onclick="addNumToScreen(9)" class="row2">9</button>
+        <button onclick="setSign('x')" class="row2">x</button>
+
+        <button onclick="addNumToScreen('e')" class="row3">e</button>
+        <button id = "sine" onclick="trig('sin')" class="row3">sin(x)</button>
+        <button onclick="addNumToScreen(4)" class="row3">4</button>
+        <button onclick="addNumToScreen(5)" class="row3">5</button>
+        <button onclick="addNumToScreen(6)" class="row3">6</button>
+        <button onclick="setSign('-')" class="row3">-</button>
+
+        <button onclick="setSign('^')" class="row4">x<sup>y</sup></button>
+        <button id = "cosine" onclick="trig('cos')" class="row4">cos(x)</button>
+        <button onclick="addNumToScreen(1)" class="row4">1</button>
+        <button onclick="addNumToScreen(2)" class="row4">2</button>
+        <button onclick="addNumToScreen(3)" class="row4">3</button>
+        <button onclick="setSign('+')" class="row4">+</button>
+
+        <button onclick="addNumToScreen('1/x')" class="row5"><sup>1</sup>&frasl;<sub>x</sub></button>
+        <button id = "tangent" onclick="trig('tan')" id="zeroButton" class="row5">tan(x)</button>
+        <button onclick="addNumToScreen(0)" id="zeroButton" class="row5">0</button>
+        <button onclick="addNumToScreen('.')" class="row5">.</button>
+        <button onclick="equalPressed()" id="equalButton" class="row5">=</button>
+    </div>
+   
+</div>
+</div>
+
+
+</body>
+
+
+
+
+</html>
