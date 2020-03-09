@@ -1,0 +1,57 @@
+<script>
+
+function string5() {
+    var stringInput = [];
+    stringInput.push(document.getElementById("word1").value);
+    stringInput.push(document.getElementById("word2").value);
+    stringInput.push(document.getElementById("word3").value);
+    sortedStrings = stringInput.sort();
+
+    document.getElementById("output").innerHTML = "Sorted Strings: " + sortedStrings[0] + ", " + sortedStrings[1] + ", " + sortedStrings[2]
+}
+
+</script>
+
+<style>
+#pageTitle, .pageDescription {
+    text-decoration: underline orangered;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.pageButton {
+    border-color: orangered;
+}
+
+</style>
+
+
+<html>
+<head>
+    <title>String 5</title>
+</head>
+
+<body>
+<div>
+    <h1 id="pageTitle">String Exercise 5</h1>
+    <h2 class="pageDescription">Put in 3 Strings and I'll Order Them!</h2>
+    <br>
+    <div style="text-align: center;">
+    String 1: <input type="text" id="word1" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    String 2: <input type="text" id="word2" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    String 3: <input type="text" id="word3" style="width: 25%; font-size: 1em; border-color: orangered;">
+    <br><br>
+    <button class="pageButton" onclick="string5()">Try out this Function!</button>
+    <br><br>
+    <p class="pageDescription" id="output"></p>
+    </div>
+</div>
+</body>
+
+
+
+
+
+
+</html>

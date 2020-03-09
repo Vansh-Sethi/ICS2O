@@ -1,0 +1,344 @@
+<!-- VANSH SETHI -->
+<!-- ICS20 -->
+
+
+<script>
+// ============= 1st Exercise =================
+var functionOperator = "nothing";
+function selectFunction() {
+    functionOperator = document.getElementById("functionSelection").value;
+
+    document.getElementById("selectDiv").style.display = "none";
+    document.getElementById("inputDiv").style.visibility = "visible";
+
+    if (functionOperator == "substring") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="subword"><br><br>Enter your 1st index: <input type="number" id="sub1st"><br><br>Enter your 2nd index: <input type="number" id="sub2nd">';
+    }
+
+    else if (functionOperator == "indexof") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="fullword"><br><br>Enter your finding string: <input type="text" id="findingword">';
+    }
+
+    else if (functionOperator == "lastindexof") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="fullword"><br><br>Enter your finding string: <input type="text" id="findingword">';
+    }
+
+    else if (functionOperator == "replace") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="wordoriginal"><br><br>Enter where you want to replace (at what substring?): <input type="text" id="whereReplace"><br><br>What to replace with (string): <input type="text" id="replaceword">';
+    }
+
+    else if (functionOperator == "touppercase") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="originalword">';
+    }
+
+    else if (functionOperator == "length") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="originalword">';
+    }
+
+    else if (functionOperator == "includes") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="word1"><br><br>Is this String in there?: <input type="text" id="word2">';
+    }
+
+    else if (functionOperator == "startswith") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="word1"><br><br>Does it start with this string?: <input type="text" id="word2">';
+    }
+
+    else if (functionOperator == "charat") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="word1"><br><br>Index position: <input type="number" id="index2">';
+    }
+
+    else if (functionOperator == "charcodeat") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="word1"><br><br>Index position: <input type="number" id="index2">';
+    }
+
+    else if (functionOperator == "fromcharcode") {
+        document.getElementById("inputField").innerHTML = 'Enter your ASCII Number (0-255): <input type="number" id="originalnumber">';
+    }
+
+    else if (functionOperator == "same") {
+        document.getElementById("inputField").innerHTML = 'Enter your 1st String: <input type="text" id="word1"><br><br>Enter your 2nd String: <input type="text" id="word2">';
+    }
+}
+
+function answer() {
+    if (functionOperator == "substring") {
+        var word = document.getElementById("subword").value;
+        var firstIndex = document.getElementById("sub1st").value;
+        var secondIndex = document.getElementById("sub2nd").value;
+        var substringAnswer = word.substring(firstIndex,secondIndex);
+        document.getElementById("answerText").innerHTML = "Substring is: "+substringAnswer;
+    }
+    else if (functionOperator == "indexof") {
+        var word = document.getElementById("fullword").value;
+        var finding = document.getElementById("findingword").value;
+        var indexofAnswer = word.indexOf(finding);
+        document.getElementById("answerText").innerHTML = "Found your word at index position: "+indexofAnswer;
+    }
+    else if (functionOperator == "lastindexof") {
+        var word = document.getElementById("fullword").value;
+        var finding = document.getElementById("findingword").value;
+        var indexofAnswer = word.lastIndexOf(finding);
+        document.getElementById("answerText").innerHTML = "Found your word at the last index position: "+indexofAnswer;
+    }
+    else if (functionOperator == "replace") {
+        var word = document.getElementById("wordoriginal").value;
+        var where = document.getElementById("whereReplace").value;
+        var replacement = document.getElementById("replaceword").value;
+        var stringAnswer = word.replace(where,replacement);
+        document.getElementById("answerText").innerHTML = "New String is: " + stringAnswer;
+    }
+    else if (functionOperator == "touppercase") {
+        var word = document.getElementById("originalword").value;
+        var stringAnswer = word.toUpperCase();
+        document.getElementById("answerText").innerHTML = "New String is: " + stringAnswer;
+    }
+    else if (functionOperator == "length") {
+        var word = document.getElementById("originalword").value;
+        var stringAnswer = word.length;
+        document.getElementById("answerText").innerHTML = "The length of the string is: " + stringAnswer;
+    }
+    else if (functionOperator == "includes") {
+        var word = document.getElementById("word1").value;
+        var word2 = document.getElementById("word2").value;
+        var stringAnswer = word.includes(word2);
+        document.getElementById("answerText").innerHTML = "Is the second string in the first string?: " + stringAnswer;
+    }
+    else if (functionOperator == "startswith") {
+        var word = document.getElementById("word1").value;
+        var word2 = document.getElementById("word2").value;
+        var stringAnswer = word.startsWith(word2);
+        document.getElementById("answerText").innerHTML = "Does the first string start with the second string?: " + stringAnswer;
+    }
+    else if (functionOperator == "charat") {
+        var word = document.getElementById("word1").value;
+        var index2 = document.getElementById("index2").value;
+        var stringAnswer = word.charAt(index2);
+        document.getElementById("answerText").innerHTML = "The char at your index position is: " + stringAnswer;
+    }
+    else if (functionOperator == "charcodeat") {
+        var word = document.getElementById("word1").value;
+        var index2 = document.getElementById("index2").value;
+        var stringAnswer = word.charCodeAt(index2);
+        document.getElementById("answerText").innerHTML = "The ASCII code at your index position is: " + stringAnswer;
+    }
+    else if (functionOperator == "fromcharcode") {
+        var word = document.getElementById("originalnumber").value;
+        var stringAnswer = String.fromCharCode(word);
+        document.getElementById("answerText").innerHTML = "The character of your ASCII Number is: " + stringAnswer;
+    }
+
+    else if (functionOperator == "same") {
+        var word = document.getElementById("word1").value;
+        var word2 = document.getElementById("word2").value;
+        var p = false;
+        if (word == word2) {
+            p = true;
+        }
+        document.getElementById("answerText").innerHTML = "Does the first string equal the second string?: " + p;
+    }
+    
+}
+
+function reset() {
+    document.getElementById("selectDiv").style.display = "block";
+    document.getElementById("inputDiv").style.visibility = "hidden";
+    functionOperator = "nothing";
+}
+
+// =============================================
+
+
+// ============= 2nd Exercise =================
+function string2() {
+    var x = document.getElementById("input").value;
+    var l = x.toUpperCase()
+    if (l.startsWith("A") || l.startsWith("E") || l.startsWith("I") || l.startsWith("O")||l.startsWith("U") ) {
+        var charbegin = x.charAt(0);
+        var y = x.substr(1);
+        y += charbegin;
+    }
+    else {
+        var y = x + "ly"
+    }
+    document.getElementById("input").value = y;
+}
+// =============================================
+
+
+// ============= 3rd Exercise =================
+function string3() {
+    var original = document.getElementById("s3word1").value;
+    var sub = document.getElementById("s3word2").value;
+
+    var lengthword = original.length;
+
+    if (original.includes(sub)) {
+        var start = original.indexOf(sub);
+        var end = start + sub.length-1;
+        document.getElementById("output3").innerHTML = "The substring is in the word at position: " + start + " - " + end + "<br>The length of the string is: " + lengthword; 
+    }
+    else {
+        document.getElementById("output3").innerHTML = "The substring is not in the word." + "<br>The length of the string is: " + lengthword; 
+    }
+    
+}
+// =============================================
+
+
+// ============= 4th Exercise =================
+function string4() {
+    var randomString = "abcdefghijklmnopqrstuvwxyz";
+    var word = document.getElementById("s4word1").value;
+    var letter = document.getElementById("s4word2").value;
+    var randomLetter = randomString.charAt(Math.floor(Math.random()*26) + 1);
+    var newWord = word.replace(letter, randomLetter);
+    document.getElementById("output4").innerHTML = "Your new word is: " + newWord;
+    console.log(randomLetter);   
+}
+// =============================================
+
+
+// ============= 5th Exercise =================
+function string5() {
+    var stringInput = [];
+    stringInput.push(document.getElementById("s5word1").value);
+    stringInput.push(document.getElementById("s5word2").value);
+    stringInput.push(document.getElementById("s5word3").value);
+    sortedStrings = stringInput.sort();
+
+    document.getElementById("output5").innerHTML = "Sorted Strings: " + sortedStrings[0] + ", " + sortedStrings[1] + ", " + sortedStrings[2]
+}
+// =============================================
+</script>
+
+<!-- CSS -->
+<style>
+#pageTitleTotal {
+    text-decoration: underline orangered;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 5em;
+}
+
+#pageTitle, .pageDescription {
+    text-decoration: underline orangered;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.pageButton {
+    border-color: orangered;
+}
+</style>
+
+
+<!-- HTML -->
+<html>
+<head><title>String Exercises</title></head>
+<h1 id="pageTitleTotal">Various String Functions</h1>
+
+
+<!-- String Exercise 1 -->
+<div>
+    <h1 id="pageTitle">String Exercise 1: Try out String Functions!</h1>
+    <h2 class="pageDescription">Select a String Function and Put in your Parameters.</h2>
+
+    <div style="text-align: center;" id="selectDiv">
+    <select id="functionSelection">
+        <option value="substring">Sub-string</option>
+        <option value="indexof">indexOf</option>
+        <option value="lastindexof">Last IndexOf</option>
+        <option value="replace">Replace</option>
+        <option value="touppercase">To Uppercase</option>
+        <option value="length">Length</option>
+        <option value="includes">Includes</option>
+        <option value="startswith">Starts With</option>
+        <option value="charat">Char At</option>
+        <option value="charcodeat">Char Code At</option>
+        <option value="fromcharcode">From Code At</option>
+        <option value="same">Equal?</option>
+    </select>
+    <br><br>
+    <button class="pageButton" onclick="selectFunction()">Try out this Function!</button>
+    </div>
+
+    <div style="text-align: center; visibility: hidden;" id="inputDiv">
+        <span id="inputField"></span>
+        <br><br>
+        <button class="pageButton" onclick="answer()">Return the Answer</button>
+        <p class="pageDescription" id="answerText"></p>
+        <button class="pageButton" onclick="reset()">Try Another Function</button>
+    </div>
+</div>
+
+
+
+
+<!-- String Exercise 2 -->
+<div>
+    <h1 id="pageTitle">String Exercise 2: Change Word!</h1>
+    <h2 class="pageDescription">Put in some text and change the word!</h2>
+    <br>
+    <div style="text-align: center;">
+    <input type="text" id="input" style="width: 50%; font-size: 2em; border-color: orangered;">
+    <br><br>
+    <button class="pageButton" onclick="string2()">Try out this Function!</button>
+    </div>
+</div>
+
+<br><br><br><br>
+
+<!-- String Exercise 3 -->
+<div>
+    <h1 id="pageTitle">String Exercise 3: Substring</h1>
+    <h2 class="pageDescription">Put in some text and let the magic occur!</h2>
+    <br>
+    <div style="text-align: center;">
+    String: <input type="text" id="s3word1" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    Sub-String: <input type="text" id="s3word2" style="width: 25%; font-size: 1em; border-color: orangered;">
+    <br><br>
+    <button class="pageButton" onclick="string3()">Try out this Function!</button>
+    <br><br>
+    <p class="pageDescription" id="output3"></p>
+    </div>
+</div>
+
+<br><br>
+
+<!-- String Exercise 4 -->
+<div>
+    <h1 id="pageTitle">String Exercise 4</h1>
+    <h2 class="pageDescription">Put in some text and let the magic occur!</h2>
+    <br>
+    <div style="text-align: center;">
+    String: <input type="text" id="s4word1" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    Letter: <input type="text" id="s4word2" style="width: 25%; font-size: 1em; border-color: orangered;">
+    <br><br>
+    <button class="pageButton" onclick="string4()">Try out this Function!</button>
+    <br><br>
+    <p class="pageDescription" id="output4"></p>
+    </div>
+</div>
+
+<br><br>
+
+<!-- String Exercise 5 -->
+<div>
+    <h1 id="pageTitle">String Exercise 5</h1>
+    <h2 class="pageDescription">Put in 3 Strings and I'll Order Them!</h2>
+    <br>
+    <div style="text-align: center;">
+    String 1: <input type="text" id="s5word1" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    String 2: <input type="text" id="s5word2" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    String 3: <input type="text" id="s5word3" style="width: 25%; font-size: 1em; border-color: orangered;">
+    <br><br>
+    <button class="pageButton" onclick="string5()">Try out this Function!</button>
+    <br><br>
+    <p class="pageDescription" id="output5"></p>
+    </div>
+</div>
+
+
+</html>

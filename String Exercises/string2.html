@@ -1,0 +1,57 @@
+<script>
+
+function string2() {
+    var x = document.getElementById("input").value;
+    var l = x.toUpperCase()
+    if (l.startsWith("A") || l.startsWith("E") || l.startsWith("I") || l.startsWith("O")||l.startsWith("U") ) {
+        var charbegin = x.charAt(0);
+        var y = x.substr(1);
+        y += charbegin;
+    }
+    else {
+        var y = x + "ly"
+    }
+    document.getElementById("input").value = y;
+}
+
+</script>
+
+<style>
+#pageTitle, .pageDescription {
+    text-decoration: underline orangered;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.pageButton {
+    border-color: orangered;
+}
+
+</style>
+
+
+<html>
+<head>
+    <title>String 2</title>
+</head>
+
+<body>
+<div>
+    <h1 id="pageTitle">String Exercise 2: Change Word!</h1>
+    <h2 class="pageDescription">Put in some text and change the word!</h2>
+    <br>
+    <div style="text-align: center;">
+    <input type="text" id="input" style="width: 50%; font-size: 2em; border-color: orangered;">
+    <br><br>
+    <button class="pageButton" onclick="string2()">Try out this Function!</button>
+    </div>
+</div>
+</body>
+
+
+
+
+
+
+</html>

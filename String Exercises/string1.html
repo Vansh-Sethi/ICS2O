@@ -1,0 +1,196 @@
+<script>
+var functionOperator = "nothing";
+function selectFunction() {
+    functionOperator = document.getElementById("functionSelection").value;
+
+    document.getElementById("selectDiv").style.display = "none";
+    document.getElementById("inputDiv").style.visibility = "visible";
+
+    if (functionOperator == "substring") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="subword"><br><br>Enter your 1st index: <input type="number" id="sub1st"><br><br>Enter your 2nd index: <input type="number" id="sub2nd">';
+    }
+
+    else if (functionOperator == "indexof") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="fullword"><br><br>Enter your finding string: <input type="text" id="findingword">';
+    }
+
+    else if (functionOperator == "lastindexof") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="fullword"><br><br>Enter your finding string: <input type="text" id="findingword">';
+    }
+
+    else if (functionOperator == "replace") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="wordoriginal"><br><br>Enter where you want to replace (at what substring?): <input type="text" id="whereReplace"><br><br>What to replace with (string): <input type="text" id="replaceword">';
+    }
+
+    else if (functionOperator == "touppercase") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="originalword">';
+    }
+
+    else if (functionOperator == "length") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="originalword">';
+    }
+
+    else if (functionOperator == "includes") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="word1"><br><br>Is this String in there?: <input type="text" id="word2">';
+    }
+
+    else if (functionOperator == "startswith") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="word1"><br><br>Does it start with this string?: <input type="text" id="word2">';
+    }
+
+    else if (functionOperator == "charat") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="word1"><br><br>Index position: <input type="number" id="index2">';
+    }
+
+    else if (functionOperator == "charcodeat") {
+        document.getElementById("inputField").innerHTML = 'Enter your String: <input type="text" id="word1"><br><br>Index position: <input type="number" id="index2">';
+    }
+
+    else if (functionOperator == "fromcharcode") {
+        document.getElementById("inputField").innerHTML = 'Enter your ASCII Number (0-255): <input type="number" id="originalnumber">';
+    }
+
+    else if (functionOperator == "same") {
+        document.getElementById("inputField").innerHTML = 'Enter your 1st String: <input type="text" id="word1"><br><br>Enter your 2nd String: <input type="text" id="word2">';
+    }
+}
+
+function answer() {
+    if (functionOperator == "substring") {
+        var word = document.getElementById("subword").value;
+        var firstIndex = document.getElementById("sub1st").value;
+        var secondIndex = document.getElementById("sub2nd").value;
+        var substringAnswer = word.substring(firstIndex,secondIndex);
+        document.getElementById("answerText").innerHTML = "Substring is: "+substringAnswer;
+    }
+    else if (functionOperator == "indexof") {
+        var word = document.getElementById("fullword").value;
+        var finding = document.getElementById("findingword").value;
+        var indexofAnswer = word.indexOf(finding);
+        document.getElementById("answerText").innerHTML = "Found your word at index position: "+indexofAnswer;
+    }
+    else if (functionOperator == "lastindexof") {
+        var word = document.getElementById("fullword").value;
+        var finding = document.getElementById("findingword").value;
+        var indexofAnswer = word.lastIndexOf(finding);
+        document.getElementById("answerText").innerHTML = "Found your word at the last index position: "+indexofAnswer;
+    }
+    else if (functionOperator == "replace") {
+        var word = document.getElementById("wordoriginal").value;
+        var where = document.getElementById("whereReplace").value;
+        var replacement = document.getElementById("replaceword").value;
+        var stringAnswer = word.replace(where,replacement);
+        document.getElementById("answerText").innerHTML = "New String is: " + stringAnswer;
+    }
+    else if (functionOperator == "touppercase") {
+        var word = document.getElementById("originalword").value;
+        var stringAnswer = word.toUpperCase();
+        document.getElementById("answerText").innerHTML = "New String is: " + stringAnswer;
+    }
+    else if (functionOperator == "length") {
+        var word = document.getElementById("originalword").value;
+        var stringAnswer = word.length;
+        document.getElementById("answerText").innerHTML = "The length of the string is: " + stringAnswer;
+    }
+    else if (functionOperator == "includes") {
+        var word = document.getElementById("word1").value;
+        var word2 = document.getElementById("word2").value;
+        var stringAnswer = word.includes(word2);
+        document.getElementById("answerText").innerHTML = "Is the second string in the first string?: " + stringAnswer;
+    }
+    else if (functionOperator == "startswith") {
+        var word = document.getElementById("word1").value;
+        var word2 = document.getElementById("word2").value;
+        var stringAnswer = word.startsWith(word2);
+        document.getElementById("answerText").innerHTML = "Does the first string start with the second string?: " + stringAnswer;
+    }
+    else if (functionOperator == "charat") {
+        var word = document.getElementById("word1").value;
+        var index2 = document.getElementById("index2").value;
+        var stringAnswer = word.charAt(index2);
+        document.getElementById("answerText").innerHTML = "The char at your index position is: " + stringAnswer;
+    }
+    else if (functionOperator == "charcodeat") {
+        var word = document.getElementById("word1").value;
+        var index2 = document.getElementById("index2").value;
+        var stringAnswer = word.charCodeAt(index2);
+        document.getElementById("answerText").innerHTML = "The ASCII code at your index position is: " + stringAnswer;
+    }
+    else if (functionOperator == "fromcharcode") {
+        var word = document.getElementById("originalnumber").value;
+        var stringAnswer = String.fromCharCode(word);
+        document.getElementById("answerText").innerHTML = "The character of your ASCII Number is: " + stringAnswer;
+    }
+
+    else if (functionOperator == "same") {
+        var word = document.getElementById("word1").value;
+        var word2 = document.getElementById("word2").value;
+        var p = false;
+        if (word == word2) {
+            p = true;
+        }
+        document.getElementById("answerText").innerHTML = "Does the first string equal the second string?: " + p;
+    }
+    
+}
+
+function reset() {
+    document.getElementById("selectDiv").style.display = "block";
+    document.getElementById("inputDiv").style.visibility = "hidden";
+    functionOperator = "nothing";
+}
+
+
+</script>
+
+<style>
+#pageTitle, .pageDescription {
+    text-decoration: underline orangered;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.pageButton {
+    border-color: orangered;
+}
+
+</style>
+
+<!-- HTML -->
+<html>
+<head>
+    <title>String 1</title>
+</head>
+
+<h1 id="pageTitle">Various String Functions</h1>
+<h2 class="pageDescription">Select a String Function and Put in your Parameters.</h2>
+
+<div style="text-align: center;" id="selectDiv">
+<select id="functionSelection">
+    <option value="substring">Sub-string</option>
+    <option value="indexof">indexOf</option>
+    <option value="lastindexof">Last IndexOf</option>
+    <option value="replace">Replace</option>
+    <option value="touppercase">To Uppercase</option>
+    <option value="length">Length</option>
+    <option value="includes">Includes</option>
+    <option value="startswith">Starts With</option>
+    <option value="charat">Char At</option>
+    <option value="charcodeat">Char Code At</option>
+    <option value="fromcharcode">From Code At</option>
+    <option value="same">Equal?</option>
+</select>
+<br><br>
+<button class="pageButton" onclick="selectFunction()">Try out this Function!</button>
+</div>
+
+<div style="text-align: center; visibility: hidden;" id="inputDiv">
+<span id="inputField"></span>
+<br><br>
+<button class="pageButton" onclick="answer()">Return the Answer</button>
+<p class="pageDescription" id="answerText"></p>
+<button class="pageButton" onclick="reset()">Try Another Function</button>
+</div>
+
+</html>
