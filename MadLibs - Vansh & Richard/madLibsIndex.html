@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <title> Richard and Vansh's Madlib Adventure </title>
+
+        <script>
+            // Function that runs when button clicks: The function that does the Madlib
+            function madlib() {
+                // Grabbing the input fields for following words
+                var adjectiveMorning = document.getElementById("adjectiveMorning").value;
+                var place = document.getElementById("place").value;
+                var person1 = document.getElementById("person1").value;
+                var person2 = document.getElementById("person2").value;
+                var ateebDoing = document.getElementById("ateebDoing").value;
+                var ateebDoing2 = document.getElementById("ateebDoing2").value;
+                var ateebAdjectiveDoing = document.getElementById("ateebAdjectiveDoing").value;
+                var ateebObject = document.getElementById("ateebObject").value;
+                var ateebBody = document.getElementById("ateebBody").value;
+                var ateebLooking = document.getElementById("ateebLooking").value;
+                var ateebSays = document.getElementById("ateebSays").value;
+                var ateebDoes = document.getElementById("ateebDoes").value;
+                var youDo = document.getElementById("youDo").value;
+                var youtoThem = document.getElementById("youtoThem").value;
+                var youtoso = document.getElementById("youtoso").value;
+
+                // Concatinatng everything together
+                var madlibText = "It was a very " + "<span>" + adjectiveMorning + "</span>" + " morning. The sun rose early, and you were on the bus to " +
+                "<span>" + place + "</span>" + ". You were with your buddies, " + "<span>" + person1 + "</span>" + " and " + "<span>" + person2 + "</span>" + ". " + "<span>" + person1 + "</span>" + " asks you if you're going to vote for Ateebullah today. You say yes because you understand that Ateeb is the greatest force and ruler of all time. Finally you arrive at " 
+                + "<span>" + place + "</span>" + ", and you see Ateeb " + "<span>" + ateebDoing + "</span>" + ". Afterwards, you see him " + "<span>" + ateebDoing2 + "</span>" + " very " + "<span>" + ateebAdjectiveDoing + "</span>" 
+                + ". You are mesmorized by his " + "<span>" + ateebObject + "</span>" + " and his very large distinct " + "<span>" + ateebBody + "</span>" + ". After getting a closer look at him, you realize he is looking extra " + "<span>" + ateebLooking + "</span>" 
+                + " today, and you like it. Ateeb then looks back at you and says " + "'" + "<span>" + ateebSays + "</span>" + "'" + ", he then proceeds to " + "<span>" + ateebDoes + "</span>"
+                + " you. Suddenly, you hear the bell ring. It is time. Ateeb performs his signature speech and the crowd goes wild! When voting begins, you hear a group of people who are discussing about how they didn't vote Ateeb. You immidiatly become " 
+                + "<span>" + youDo + "</span>" + " and " + "<span>" + youtoThem + "</span>" + " them.  You are laying on the floor, and an officer chases you and then you swiftly " + "<span>" + youtoso + "</span>" + " to get away. THE END.";
+
+                // Putting it into the bottom <p> tag
+                document.getElementById("theMadLib").innerHTML = madlibText;    
+            }
+        </script>
+
+        <style>
+            /* Font used throughout the page */
+            @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+            #title {
+                color: black; 
+                font-family: 'Poppins', sans-serif; 
+                text-decoration: underline greenyellow; 
+                text-align: center;
+                font-size: 8vh;  
+            }
+
+            #title:hover {
+                color: greenyellow;
+            }
+
+            #inputText {
+                color: black; 
+                font-family: 'Poppins', sans-serif; 
+                text-decoration: underline greenyellow; 
+                text-align: left;
+                margin-left: 5vh;
+                font-size: 5vh;  
+            }
+
+            .inputfield {
+                border: 3px solid greenyellow;
+                font-family: 'Poppins', sans-serif; 
+            }
+
+            #buttonyes {
+                text-decoration: underline greenyellow;
+                color: black;
+                border: inset;
+                font-size: 5vh;
+                font-family: 'Poppins', sans-serif; 
+            }
+
+            #madlibword {
+                text-decoration: underline greenyellow;
+            }
+
+            #theMadLib {
+                font-family: 'Poppins', sans-serif;
+                font-size: 5vh;
+            }
+
+            /* Span tags to highlight inputted words */
+            span {
+                text-decoration: underline greenyellow;
+                color: orangered;
+            }
+
+            span:hover {
+                color: greenyellow;
+            }
+
+        </style>
+    </head>
+
+<body>
+    <h1 id = "title">The Great Colonel By Story; Ateeb the Unexpected Victory</h1>
+    <h1 id = "inputText">Input Your Text Here!</h1>
+
+    <!-- Table with input fields -->
+    <table>
+        <tr>
+            <td>Input an Adjective:</td>
+            <td><input id="adjectiveMorning" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input an Place:</td>
+            <td><input id="place" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input a Person:</td>
+            <td><input id="person1" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input a Person:</td>
+            <td><input id="person2" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input a Verb with -ing ending:</td>
+            <td><input id="ateebDoing" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input a Verb with -ing ending:</td>
+            <td><input id="ateebDoing2" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input an Adjective:</td>
+            <td><input id="ateebAdjectiveDoing" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input an Object:</td>
+            <td><input id="ateebObject" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input a Body Part:</td>
+            <td><input id="ateebBody" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input an Adjective:</td>
+            <td><input id="ateebLooking" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input a Common Saying:</td>
+            <td><input id="ateebSays" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input a Verb:</td>
+            <td><input id="ateebDoes" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input an Adjective:</td>
+            <td><input id="youDo" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input an Adjective:</td>
+            <td><input id="youtoThem" type="text" class="inputField"></td>
+        </tr>
+        <tr>
+            <td>Input an Verb:</td>
+            <td><input id="youtoso" type="text" class="inputField"></td>
+        </tr>
+
+
+    </table>
+    <br><br>
+
+    <!-- Button that when clicked, runs js function -->
+    <a href="#" id="buttonyes" onclick="madlib()">Click here for your custom MadLib!</a>
+    
+    <!-- Paragraph containing madlibbed text -->
+    <p id="theMadLib"></p>
+
+</body>
+</html>
