@@ -1,0 +1,98 @@
+<script>
+function everyNumber() {
+    var low = document.getElementById("exercise1A").value;
+    var high = document.getElementById("exercise2A").value;
+
+    var valuesString = "";
+
+    for (i = low; i <= high; i++) {
+        valuesString += i + ", ";
+    }
+    document.getElementById("outputA").innerHTML = "<span class='important'><b>The Numbers are: </b></span>"  + valuesString;
+}
+
+function evenNumber() {
+    var low = document.getElementById("exercise1B").value;
+    var high = document.getElementById("exercise2B").value;
+
+    var valuesString = "";
+
+    for (i = low; i <= high; i++) {
+        if (i%2==0){
+            valuesString += i + ", ";
+        }
+    }
+    document.getElementById("outputB").innerHTML = "<span class='important'><b>The Numbers are: </b></span>"  + valuesString;
+}
+
+function highToLow() {
+    var low = document.getElementById("exercise1C").value;
+    var high = document.getElementById("exercise2C").value;
+
+    var valuesString = "";
+
+    for (i = high; i >= low; i--) {
+        valuesString += i + ", ";
+    }
+    document.getElementById("outputC").innerHTML = "<span class='important'><b>The Numbers are: </b></span>"  + valuesString;
+}
+
+
+
+
+</script>
+
+
+<style>
+.pageButton {
+    font-size: 0.75em;
+    border-color: orangered;
+}
+
+.important {
+    text-decoration: orangered underline;
+}
+
+
+</style>
+
+<html>
+<head><title>For Counter</title></head>
+
+<body>
+
+<div id="everything" style="text-align: center;">
+    <h1 style="font-size: 3em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">For Counter - For Loops Exercise</h1>
+    
+    <h1 style="font-size: 2em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Every Number</h1>
+    Bottom of Range: <input type="number" id="exercise1A" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    Top of Range: <input type="number" id="exercise2A" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    <button class="pageButton" onclick="everyNumber()">Every Number</button>
+    <p id="outputA"></p><br>
+
+
+    <br><br><br>
+
+    <h1 style="font-size: 2em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Even Numbers Only</h1>
+    Bottom of Range: <input type="number" id="exercise1B" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    Top of Range: <input type="number" id="exercise2B" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    <button class="pageButton" onclick="evenNumber()">Even Numbers Only</button>
+    <p id="outputB"></p><br>
+
+    <br><br><br>
+
+    <h1 style="font-size: 2em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">From Highest to Lowest</h1>
+    Bottom of Range: <input type="number" id="exercise1C" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    Top of Range: <input type="number" id="exercise2C" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    <button class="pageButton" onclick="highToLow()">From Highest to Lowest</button>
+    <p id="outputC"></p>
+</div>
+
+
+
+</body>
+
+
+
+
+</html>

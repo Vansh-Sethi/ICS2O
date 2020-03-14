@@ -1,0 +1,63 @@
+<script>
+function createPassword() {
+    var letters = "abcdefghijklmnopqrstuvwxyz";
+    var randomNum = Math.floor(Math.random()*10 + 1);
+    var word = ''
+
+    for (i = 0; i <= randomNum; i++) {
+        var randomLet = Math.floor(Math.random()*27 +1);
+        var a = letters.charAt(randomLet);
+        word = word + a;
+    }
+    console.log(word);
+    return word;
+}
+
+function passChecker() {
+    var randomWord = createPassword();
+    var guessed = false;
+    while (!guessed) {
+        var guess = prompt("The length of the secret password is: " + randomWord.length + "\n Guess the word")
+        if (guess == randomWord) {
+            alert("Right Answer! You are really good at this.");
+            guessed = true;
+        }
+        else {
+            alert("Wrong answer. Try again.");
+        }
+    }
+}
+</script>
+
+
+<style>
+.pageButton {
+    font-size: 0.75em;
+    border-color: orangered;
+}
+
+.important {
+    text-decoration: orangered underline;
+}
+
+
+</style>
+
+<html>
+<head><title>For Counter</title></head>
+
+<body>
+
+<div id="everything" style="text-align: center;">
+    <h1 style="font-size: 3em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">While Password Checker - While Loops Exercise</h1>  
+    <h1 style="font-size: 2em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Guess my Password.</h1>
+    <button class="pageButton" onclick="passChecker()">Password Checker</button>
+    <p id="output"></p>
+
+
+</body>
+
+
+
+
+</html>

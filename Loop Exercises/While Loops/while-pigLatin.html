@@ -1,0 +1,77 @@
+<script>
+function pigLatin() {
+    const vowels = 'aeiou';
+    const consonant = 'bcdfghjklmnpqrstvwxyz'
+    const special = ".,/)(*&^%$#@!~+_-=}{;:><?|''"
+    var sentences = document.getElementById('exerciseInput').value.split(' ');
+    var output = ''
+    for (i = 0; i < sentences.length; i++) {
+        var sentence = sentences[i];
+        if (vowels.includes(sentence.charAt(0).toLowerCase())) {
+            if (special.includes(sentence.charAt(sentence.length-1))) {
+                var let = sentence.charAt(sentence.length-1);
+                sentence = sentence.substring(0, sentence.length - 1);
+                sentence = sentence + 'ay' + let;
+            }
+            else {
+                sentence = sentence + 'ay';
+            }
+            
+            
+        }
+        else if (consonant.includes(sentence.charAt(0).toLowerCase())) {
+            if (special.includes(sentence.charAt(sentence.length-1))) {
+                var let = sentence.charAt(sentence.length-1);
+                sentence = sentence.substring(0, sentence.length - 1);
+                sentence = sentence + sentence.charAt(0).toLowerCase() + 'ay' + let;
+                sentence = sentence.substr(1);
+                sentence = sentence.charAt(0).toUpperCase() + sentence.substr(1);
+            }
+            else {
+                sentence = sentence + sentence.charAt(0).toLowerCase() + 'ay';
+                sentence = sentence.substr(1);
+                sentence = sentence.charAt(0).toUpperCase() + sentence.substr(1);
+            }
+        }
+        output = output + sentence + ' ';
+        
+    }
+    console.log(output);
+    document.getElementById("output").innerHTML = "Your sentence in Pig Latin is: <span class='important'>" + output + "</span>"; 
+}
+</script>
+
+
+<style>
+.pageButton {
+    font-size: 0.75em;
+    border-color: orangered;
+}
+
+.important {
+    text-decoration: orangered underline;
+}
+
+
+</style>
+
+<html>
+<head><title>While Pig Latin</title></head>
+
+<body>
+
+<div id="everything" style="text-align: center;">
+    <h1 style="font-size: 3em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">While Pig Latin - While Loops Exercise</h1>
+    
+    <h1 style="font-size: 2em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Enter a sentence and encode it with Pig Latin.</h1>
+    Sentence: <input type="text" id="exerciseInput" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    <button class="pageButton" onclick="pigLatin()">Pig Latin</button>
+    <p id="output"></p>
+
+
+</body>
+
+
+
+
+</html>

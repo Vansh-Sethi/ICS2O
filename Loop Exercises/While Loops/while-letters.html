@@ -1,0 +1,54 @@
+<script>
+function numOfLetters() {
+    var letters = "abcdefghijklmnopqrstuvwxyz";
+    var i = 0;
+    var total = 0;
+    var sentence = document.getElementById("exerciseInput").value;
+    while (true) {
+        if (i == sentence.length) {
+            break;
+        }
+        if (letters.includes(sentence.charAt(i).toLowerCase())) {
+                total++;
+        }
+        i++;
+    }
+
+    document.getElementById("output").innerHTML = "The number of letters in your sentence is: <span class='important'>" + total + '</span>'
+}
+</script>
+
+
+<style>
+.pageButton {
+    font-size: 0.75em;
+    border-color: orangered;
+}
+
+.important {
+    text-decoration: orangered underline;
+}
+
+
+</style>
+
+<html>
+<head><title>While Letters</title></head>
+
+<body>
+
+<div id="everything" style="text-align: center;">
+    <h1 style="font-size: 3em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">While Letters - While Loops Exercise</h1>
+    
+    <h1 style="font-size: 2em; text-decoration: underline orangered; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Enter a sentence and get # of letters.</h1>
+    Sentence: <input type="text" id="exerciseInput" style="width: 25%; font-size: 1em; border-color: orangered;"><br><br>
+    <button class="pageButton" onclick="numOfLetters()">Number of Letter</button>
+    <p id="output"></p>
+
+
+</body>
+
+
+
+
+</html>
