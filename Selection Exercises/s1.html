@@ -1,0 +1,188 @@
+<html>
+    <head>
+        <title>Selection Exercise #1</title>
+    </head>
+
+<!-- Javascript -->
+<script>
+    
+    function Mark(){
+
+        // Grabbing input of text field
+        var percent = document.getElementById("userInput").value;
+        console.log(percent)
+            
+        // Mark for R
+        if ((percent < 50) && (percent >= 0)) {
+            document.getElementById("message").innerHTML = "Unfortunatly you got an <b>R.</b>";
+        }
+    
+        // Mark for 1-
+        else if ((percent >= 50) && (percent <= 52)) {
+            document.getElementById("message").innerHTML = "You got a <b>1-</b>.";
+        }
+    
+        // Mark for 1
+        else if ((percent >= 53) && (percent <= 56)) {
+            document.getElementById("message").innerHTML = "You got a <b>1</b>.";
+        }
+    
+        // Mark for 1+
+        else if ((percent >= 57) && (percent <= 59)) {
+            document.getElementById("message").innerHTML = "You got a <b>1+</b>.";
+        }
+    
+        // Mark for 2-
+        else if ((percent >= 60) && (percent <= 62)) {
+            document.getElementById("message").innerHTML = "You got a <b>2-</b>.";
+        }
+    
+        // Mark for 2
+        else if ((percent >= 63) && (percent <= 66)) {
+            document.getElementById("message").innerHTML = "You got a <b>2</b>.";
+        }
+    
+        // Mark for 2+
+        else if ((percent >= 67) && (percent <= 69)) {
+            document.getElementById("message").innerHTML = "You got a <b>2+</b>.";
+        }
+    
+        // Mark for 3-
+        else if ((percent >= 70) && (percent <= 72)) {
+            document.getElementById("message").innerHTML = "You got a <b>3-</b>.";
+        }
+    
+        // Mark for 3
+        else if ((percent >= 73) && (percent <= 76)) {
+            document.getElementById("message").innerHTML = "You got a <b>3</b>.";
+        }
+    
+        // Mark for 3+
+        else if ((percent >= 77) && (percent <= 79)) {
+            document.getElementById("message").innerHTML = "You got a <b>3+</b>.";
+        }
+    
+        // Mark for 4-
+        else if ((percent >= 80) && (percent <= 86)) {
+            document.getElementById("message").innerHTML = "You got a <b>4-</b>.";
+        }
+    
+        // Mark for 4
+        else if ((percent >= 87) && (percent <= 94)) {
+            document.getElementById("message").innerHTML = "You got a <b>4</b>.";
+        }
+    
+        // Mark for 4+
+        else if ((percent >= 95) && (percent <= 100)) {
+            document.getElementById("message").innerHTML = "You got a <b>4+</b>.";
+        }
+    
+        // Invalid / Error
+        else {
+            document.getElementById("message").innerHTML = "Invalid mark. Please input a number between 0 - 100.";
+        }
+    }
+    
+</script>
+
+<!-- Styling / CSS -->
+<style>
+
+    /* One screen */
+    body {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    /* Background Video */
+    #bgvideo {
+        z-index: -1;
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        filter: blur(1px) brightness(0.4);
+    }
+
+    /* Main Text */
+    #prompt {
+        color: white;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-style: italic;
+        text-align: center;
+        font-size: 10vh;
+    } 
+
+    /* User Input Field */
+    #userInput {
+        width: 50vw;
+        border: 5px solid white;
+        border-radius: 10px;
+        background: rgba(204, 204, 204, 0.5);
+    }
+    
+    /* Input Button */
+    #inputButton {
+        text-align: center;
+        border: 5px solid white;
+        font-size: 30px;
+        font-family: 'Nanum Gothic', sans-serif;
+        padding: 5px;
+        text-decoration: none;
+        background: rgba(204, 204, 204, 0.5);
+    }
+
+    #inputButton:hover {
+        background-color: white;
+    }
+
+    #inputButton:visited {
+        color:white;
+    }
+
+    /* Returned Text */
+    #message {
+        text-align: center;
+        font-size: 50px;
+        font-family: 'Nanum Gothic', sans-serif;
+        color: white;
+    }
+
+    /* Div with all text: Centering it */
+    .textprompts {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+
+<!-- HTML -->
+<body>
+
+    <!-- Background Website -->
+    <video autoplay muted loop id="bgvideo">
+        <source src="assets/schoolvideo.mp4" type="video/mp4">
+    </video>
+
+    <!-- Center Text -->
+    <div class="textprompts">
+        <h1 id="prompt">What score did you receive? (0-100)</h1>
+        <div style="text-align:center;">
+            <input type="number" id="userInput">
+        </div>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center;">
+            <a id="inputButton" onclick="Mark()" href="#">Submit</a>
+        </div>
+        <p id="message"></p>
+    </div>
+
+   
+</body>
+
+</html>

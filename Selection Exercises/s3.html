@@ -1,0 +1,202 @@
+    <script>
+        function Sign() {
+            var date = document.getElementById("userInput").value;
+            console.log(date);
+            var arr = date.split("-");
+            var month = Number(arr[1]);
+            var day = Number(arr[2]);
+            console.log(month);
+            console.log(day);
+
+            // Aries
+            if ( ((month == 3) && (day >= 21) && (day <= 31)) || ((month == 4) && (day <= 19) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Aries."
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/aries.jfif"/>'
+            }
+
+            // Taurus
+            else if ( ((month == 4) && (day >= 20) && (day <= 31)) || ((month == 5) && (day <= 20) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Taurus"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/taurus.png"/>'
+            }
+
+            // Gemini
+            else if ( ((month == 5) && (day >= 21) && (day <= 31)) || ((month == 6) && (day <= 20) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Gemini"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/gemini.png"/>'
+            }
+
+            // Cancer
+            else if ( ((month == 6) && (day >= 21) && (day <= 31)) || ((month == 7) && (day <= 22) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Cancer"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/cancer.png"/>'
+            }
+
+            // Leo
+            else if ( ((month == 7) && (day >= 23) && (day <= 31)) || ((month == 8) && (day <= 22) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Leo"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/leo.png"/>'
+            }
+
+            // Virgo
+            else if ( ((month == 8) && (day >= 23) && (day <= 31)) || ((month == 9) && (day <= 22) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Virgo"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/virgo.png"/>'
+            }
+
+            // Libra
+            else if ( ((month == 9) && (day >= 23) && (day <= 31)) || ((month == 10) && (day <= 22) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Libra"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/libra.png"/>'
+            }
+
+            // Scorpio
+            else if ( ((month == 10) && (day >= 23) && (day <= 31)) || ((month == 11) && (day <= 21) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Scorpio"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/scorpio.png"/>'
+            }
+
+            // Sagittarius
+            else if ( ((month == 11) && (day >= 22) && (day <= 31)) || ((month == 12) && (day <= 21) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Sagittarius"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/sagittarius.png"/>'
+            }
+
+            // Capricorn
+            else if ( ((month == 12) && (day >= 22) && (day <= 31)) || ((month == 1) && (day <= 19) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Capricorn"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/capricorn.png"/>'
+            }
+
+            // Aquarius
+            else if ( ((month == 1) && (day >= 20) && (day <= 31)) || ((month == 2) && (day <= 18) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Aquarius"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/aquarius.png"/>'
+            }
+
+            // Pisces
+            else if ( ((month == 2) && (day >= 19) && (day <= 31)) || ((month == 3) && (day <= 20) && (day >= 1))) {
+                document.getElementById("message").innerHTML = "You are Pisces"
+                document.getElementById("imageSign").innerHTML = '<img class="astrosign" src="assets/astrosigns/pisces.png"/>'
+            }
+            
+        }
+            
+    
+    </script>
+
+<style>
+
+    /* One screen */
+    body {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    /* Background Video */
+    #bgvideo {
+        z-index: -1;
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        filter: blur(1px) brightness(0.4);
+    }
+
+    /* Main Text */
+    #prompt {
+        color: white;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-style: italic;
+        text-align: center;
+        font-size: 10vh;
+    } 
+
+    /* User Input Field */
+    #userInput {
+        width: 50vw;
+        border: 5px solid white;
+        border-radius: 10px;
+        background: rgba(204, 204, 204, 0.5);
+    }
+    
+    /* Input Button */
+    #inputButton {
+        text-align: center;
+        border: 5px solid white;
+        font-size: 30px;
+        font-family: 'Nanum Gothic', sans-serif;
+        padding: 5px;
+        text-decoration: none;
+        background: rgba(204, 204, 204, 0.5);
+    }
+
+    #inputButton:hover {
+        background-color: white;
+    }
+
+    #inputButton:visited {
+        color:white;
+    }
+
+    /* Returned Text */
+    #message {
+        text-align: center;
+        font-size: 50px;
+        font-family: 'Nanum Gothic', sans-serif;
+        color: white;
+    }
+
+    /* Div with all text: Centering it */
+    .textprompts {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .astrosign {
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 20%;
+        
+    }
+</style>
+
+
+<html>
+    <head>
+        <title>Selection Exercise #3</title>
+    </head>
+    <body>
+
+        <!-- Background Website -->
+        <video autoplay muted loop id="bgvideo">
+            <source src="assets/space.mp4" type="video/mp4">
+        </video>
+    
+        <!-- Center Text -->
+        <div class="textprompts">
+            <h1 id="prompt">What is your sign? Enter a date.</h1>
+            <div style="text-align:center;">
+                <input type="date" id="userInput">
+            </div>
+            <br>
+            <br>
+            <br>
+            <div style="text-align: center;">
+                <a id="inputButton" onclick="Sign()" href="#">Submit</a>
+            </div>
+            <p id="message"></p>
+            <br>
+            <br>
+            <span id="imageSign"></span>
+        </div>
+        
+    </body>
+
+
+
+</html>

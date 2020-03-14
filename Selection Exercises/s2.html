@@ -1,0 +1,177 @@
+<!-- Javascript -->
+<script>
+function Ball8() {
+
+    // Clearing intro screen to make space for 8Ball
+    document.getElementById("prompt").style.visibility = "hidden";
+    document.getElementById("inputButton").style.visibility = "hidden";
+    document.getElementById("userInput").style.visibility = "hidden";
+    document.getElementById("bgimage").style.visibility = "hidden";
+
+    // Getting random response number
+    var randomAnswer = Math.floor(Math.random()*8) + 1;
+
+    // First 4 positive
+    if (randomAnswer == 1) {
+        document.getElementById("ballOutputMessage").innerHTML = "Without a<br>doubt.";
+    }
+    else if (randomAnswer == 1) {
+        document.getElementById("ballOutputMessage").innerHTML = "As I see it,<br>yes.";
+    }
+    else if (randomAnswer == 2) {
+        document.getElementById("ballOutputMessage").innerHTML = "It is<br>certain.";
+    }
+    else if (randomAnswer == 3) {
+        document.getElementById("ballOutputMessage").innerHTML = "It is<br>forsure.";
+    }
+    else if (randomAnswer == 4) {
+        document.getElementById("ballOutputMessage").innerHTML = "Don't count<br>on it.";
+    }
+
+    // Last 4 negative
+    else if (randomAnswer == 5) {
+        document.getElementById("ballOutputMessage").innerHTML = "Ask again<br>later.";
+    }
+    else if (randomAnswer == 6) {
+        document.getElementById("ballOutputMessage").innerHTML = "Signs point<br>to no.";
+    }
+    else if (randomAnswer == 7) {
+        document.getElementById("ballOutputMessage").innerHTML = "Very<br>doubtful.";
+    }
+    else if (randomAnswer == 8) {
+        document.getElementById("ballOutputMessage").innerHTML = "My reply is<br>no.";
+    }
+
+    // Showing 8ball image
+    document.getElementById("ballImage").style.visibility = "visible";
+}
+
+</script>
+
+<!-- CSS / Styling -->
+<style>
+
+    /* One screen */
+    body {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    /* Background Image */
+    #bgimage {
+        z-index: -1;
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        filter: blur(1px) brightness(0.2);
+    }
+
+    /* Main Text */
+    #prompt {
+        color: white;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-style: italic;
+        text-align: center;
+        font-size: 10vh;
+    } 
+
+    /* User Input Field */
+    #userInput {
+        width: 50vw;
+        border: 5px solid white;
+        border-radius: 10px;
+        background: rgba(204, 204, 204, 0.5);
+    }
+    
+    /* Input Button */
+    #inputButton {
+        text-align: center;
+        border: 5px solid white;
+        font-size: 30px;
+        font-family: 'Nanum Gothic', sans-serif;
+        padding: 5px;
+        text-decoration: none;
+        background: rgba(204, 204, 204, 0.5);
+    }
+
+    #inputButton:hover {
+        background-color: white;
+    }
+
+    #inputButton:visited {
+        color:white;
+    }
+
+    /* Returned Text */
+    #message {
+        text-align: center;
+        font-size: 50px;
+        font-family: 'Nanum Gothic', sans-serif;
+        color: white;
+    }
+
+    /* Div with all text: Centering it */
+    .textprompts {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* 8 Ball Image */
+    #ballImage {
+        z-index: -1;
+        height: 100%;
+    }
+
+    #ballOutput {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-style: 'Open Sans', sans-serif;
+    }
+
+    #ballOutputMessage {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 2vw;
+    }
+
+</style>
+
+
+<!-- HTML -->
+<html>
+    <head>
+        <title>Selection Exercise #2</title>
+    </head>
+    <body>
+
+        <!-- Background Image -->
+        <img src="assets/fortune.jpg" id="bgimage">
+    
+        <!-- Center Text -->
+        <div class="textprompts">
+            <h1 id="prompt">Ask a question. The magic ball will answer!</h1>
+            <div style="text-align:center;">
+                <input type="text" id="userInput">
+            </div>
+            <br>
+            <br>
+            <br>
+            <div style="text-align: center;">
+                <a id="inputButton" onclick="Ball8()" href="#">Submit</a>
+            </div>
+            <p id="message"></p>
+        </div>
+        <div class="answerfromBall" style="text-align: center;">
+            <img src="assets/8ball.png" style="visibility: hidden;" id="ballImage">
+            <div id="ballOutput"><p id="ballOutputMessage"></p></div>
+        </div>
+        
+    </body>
+
+</html>

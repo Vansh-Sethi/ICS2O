@@ -1,0 +1,124 @@
+<!-- Javascript -->
+<script>
+
+    // Function that Calculates Leap Year
+    function Leap(){
+        // Get Year
+        var year = document.getElementById("userInput").value;
+
+        // Conditional Statements to Check
+        if ( ((year%100 != 0) && (year%4 == 0)) || ((year%4 == 0) && (year%400 == 0)) ) {
+            document.getElementById("message").innerHTML = "It is a <b>Leap Year<b>";
+        } 
+        else {
+            document.getElementById("message").innerHTML = "Not a <b>Leap Year<b>";
+        }
+        
+    }
+
+</script>
+
+<style>
+    /* One screen */
+    body {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    /* Background Video */
+    #bgvideo {
+        z-index: -1;
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        filter: blur(1px) brightness(0.2);
+    }
+
+    /* Main Text */
+    #prompt {
+        color: white;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-style: italic;
+        text-align: center;
+        font-size: 10vh;
+    } 
+
+    /* User Input Field */
+    #userInput {
+        width: 50vw;
+        border: 5px solid white;
+        border-radius: 10px;
+        background: rgba(204, 204, 204, 0.5);
+    }
+    
+    /* Input Button */
+    #inputButton {
+        text-align: center;
+        border: 5px solid white;
+        font-size: 30px;
+        font-family: 'Nanum Gothic', sans-serif;
+        padding: 5px;
+        text-decoration: none;
+        background: rgba(204, 204, 204, 0.5);
+    }
+
+    #inputButton:hover {
+        background-color: white;
+    }
+
+    #inputButton:visited {
+        color:white;
+    }
+
+    /* Returned Text */
+    #message {
+        text-align: center;
+        font-size: 50px;
+        font-family: 'Nanum Gothic', sans-serif;
+        color: white;
+    }
+
+    /* Div with all text: Centering it */
+    .textprompts {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+</style>
+
+<html>
+    <head>
+        <title>Selection Exercise #4</title>
+    </head>
+
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="bgvideo">
+        <source src="assets/calendar.mp4" type="video/mp4">
+    </video>
+
+    <!-- Center Text -->
+    <div class="textprompts">
+        <h1 id="prompt">Enter a Year. is it a Leap Year?</h1>
+        <div style="text-align:center;">
+            <input type="number" id="userInput">
+        </div>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center;">
+            <a id="inputButton" onclick="Leap()" href="#">Submit</a>
+        </div>
+        <p id="message"></p>
+    </div>
+
+</body>
+
+
+
+
+</html>

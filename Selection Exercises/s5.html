@@ -1,0 +1,182 @@
+<!-- Script -->
+    <script>
+
+        // Score of user
+        var score = 0;
+
+        // Generate random number (1-10)
+        const rightAnswer = Math.floor(Math.random()*10) + 1;
+        var guessed = false;
+
+        // Check right answer in console.
+        console.log(rightAnswer);
+
+        function Guess() {
+
+            // Score++
+            score = score + 1; 
+
+            var guessbyuser = document.getElementById("userInput").value;
+
+            // If already guessed: tell them to refresh
+            if (guessed == true) {
+                document.getElementById("message").innerHTML = 'You already guessed the <span id="right">right</span> answer! Refresh the page.';
+            }
+
+            // If right answer
+            else if (guessbyuser == rightAnswer) {
+
+                // Gotten in one guess
+                if (score == 1) {
+                    document.getElementById("message").innerHTML = 'You guessed the <span id="right">right</span> answer in 1 move. You get 100 points!';
+                    guessed = true;
+                }
+
+                // Gotten in two guesses
+                else if (score == 2) {
+                    document.getElementById("message").innerHTML = 'You guessed the <span id="right">right</span> answer in 2 moves. You get 50 points!';
+                    guessed = true;
+                }
+
+                // Gotten in three guesses
+                else if (score == 3) {
+                    document.getElementById("message").innerHTML = 'You guessed the <span id="right">right</span> answer in 3 moves. You get 25 points!';
+                    guessed = true;
+                }
+
+                // Gotten in three+ guesses
+                else {
+                    document.getElementById("message").innerHTML = 'You finally guessed the <span id="right">right</span> answer. You get 0 points. :(';
+                    guessed = true;
+                }
+            }
+
+            // If guess was too high
+            else if (guessbyuser > rightAnswer) {
+                document.getElementById("message").innerHTML = '<span id="wrong">Wrong</span> answer. Guess lower.'
+            }
+
+            // If guess was too low
+            else if (guessbyuser < rightAnswer) {
+                document.getElementById("message").innerHTML = '<span id="wrong">Wrong</span> answer. Guess higher.'
+            }
+        }
+            
+    
+    </script>
+
+
+<!-- CSS / Styling -->
+<style>
+
+    /* One screen */
+    body {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    /* Background Video */
+    #bgimage {
+        z-index: -1;
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        filter: blur(1px) brightness(0.3);
+    }
+
+    /* Main Text */
+    #prompt {
+        color: white;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-style: italic;
+        text-align: center;
+        font-size: 10vh;
+    } 
+
+    /* User Input Field */
+    #userInput {
+        width: 50vw;
+        border: 5px solid white;
+        border-radius: 10px;
+        background: rgba(204, 204, 204, 0.5);
+    }
+    
+    /* Input Button */
+    #inputButton {
+        text-align: center;
+        border: 5px solid white;
+        font-size: 30px;
+        font-family: 'Nanum Gothic', sans-serif;
+        padding: 5px;
+        text-decoration: none;
+        background: rgba(204, 204, 204, 0.5);
+    }
+
+    #inputButton:hover {
+        background-color: white;
+    }
+
+    #inputButton:visited {
+        color:white;
+    }
+
+    /* Returned Text */
+    #message {
+        text-align: center;
+        font-size: 50px;
+        font-family: 'Nanum Gothic', sans-serif;
+        color: white;
+    }
+
+    /* Div with all text: Centering it */
+    .textprompts {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Wrong Answer Colour */
+    #wrong {
+        color: red;
+    }
+
+    /* Right Answer Colour */
+    #right {
+        color: green;
+    }
+
+</style>
+
+<!-- HTML -->
+<html>
+    <head>
+        <title>Selection Exercise #5</title>
+    </head>
+    <body>
+
+        <!-- Background Image -->
+        <img src="assets/higher.jpg" id="bgimage">
+    
+        <!-- Center Text -->
+        <div class="textprompts">
+            <h1 id="prompt">Guess the number! (1-10)</h1>
+            <div style="text-align:center;">
+                <input type="number" id="userInput">
+            </div>
+            <br>
+            <br>
+            <br>
+            <div style="text-align: center;">
+                <a id="inputButton" onclick="Guess()" href="#">Submit</a>
+            </div>
+            <p id="message"></p>
+        </div>
+        
+    </body>
+
+
+
+</html>
