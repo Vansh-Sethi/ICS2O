@@ -1,0 +1,296 @@
+::selection {
+color: none;
+background: none;
+}
+
+/* Colour changing background animation */
+@keyframes bgcolor {
+    0% {
+        background-color: #45a3e5
+    }
+
+    30% {
+        background-color: #66bf39
+    }
+
+    60% {
+        background-color: #eb670f
+    }
+
+    90% {
+        background-color: #f35
+    }
+
+    100% {
+        background-color: #864cbf
+    }
+}
+
+body {
+    /* Colour changing background */
+    -webkit-animation: bgcolor 20s infinite;
+    animation: bgcolor 10s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+
+    /* Fit onto the whole screen (no scrollbar) */
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
+
+/* Grid for blocks */
+.grid-container {
+display: inline-grid;
+
+/* 4x4 Grid */
+grid-template-columns: auto auto auto auto;
+row-gap: 1.3vw;
+column-gap: 1.3vw;
+top: 50%;
+left: 50%;
+padding-left: 3vw;
+padding-top: 5vh;
+}
+
+.grid-item {
+color: black;
+font-family: 'Poppins';
+display: flex;
+font-size: 3.5vw;
+width: 7vw;
+height: 7vw;
+background-color: white;
+
+align-items: center;
+justify-content: center;
+border-radius: 10px;
+box-shadow: 0.3vw 0.55vw #181818;
+transition: 0.3s;
+
+/* Can't drag the letters in the block */
+-webkit-touch-callout: none; 
+-webkit-user-select: none; 
+-khtml-user-select: none;
+-moz-user-select: none; 
+-ms-user-select: none; 
+user-select: none; 
+}
+
+#timerField1 {
+width: 27vw;
+height: 7vw;
+font-size: 4vw;
+background-color: rgba(255, 255, 255, 1);
+/* box-shadow: 0.3vw 0.55vw #181818; */
+border: 0.4vw solid black;
+border-radius: 100px;
+padding-left: 1.3vw;
+color:black;
+}
+
+#timerField2 {
+width: 27vw;
+height: 7vw;
+font-size: 4vw;
+background-color: rgba(255, 255, 255, 1);
+/* box-shadow: 0.3vw 0.55vw #181818; */
+border: 0.4vw solid black;
+border-radius: 100px;
+padding-left: 1.3vw;
+color:black;
+transition: 0.5s;
+}
+
+.grid-for-user {
+display: grid;
+padding-left:5vw;
+grid-template-columns: auto auto;
+column-gap: 2vw;
+row-gap: 3vw;
+padding-top: 5vh;
+}
+
+#log {
+grid-column: 1/3;
+height: 15vw;
+border: 0.4vw solid black;
+font-size: 2vw;
+font-family: 'Poppins';
+padding-left: 1vw;
+color: black;
+transition: 0.5s;
+background-color: white;
+overflow-y: hidden;
+}
+
+#currentWord {
+grid-column: 1/3;
+height: 5vw;
+border: 0.4vw solid black;
+font-size: 2vw;
+font-family: 'Poppins';
+padding-left: 1vw;
+color: black;
+transition: 0.5s;
+}
+
+.green {
+color: #27d817;
+}
+
+.yellow {
+color:rgb(212, 224, 44);
+}
+
+.red {
+color: red;
+}
+
+
+.buttonStyle {
+color: white;
+font-size: 5vh;
+background-color: rgba(255, 255, 255, 0.5);
+border-color: white;
+border-style: solid;
+border-width: 1vh;
+align-items: center;
+margin-right: 4vh;
+margin-top: 4vh;
+}
+
+
+#scoreCard {
+display: none;
+position: fixed;
+z-index: 100;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color:rgb(0,0,0);
+background-color: rgb(0,0,0,0.4);
+animation-name: fadeIn;
+animation-duration: 0.4s;
+font-family: 'Poppins';
+}
+
+.scoreCard-content {
+position: fixed;
+bottom: 0;
+background-color: #fefefe;
+width: 100%;
+animation-name: slideIn;
+animation-duration: 0.4s;
+}
+
+.close {
+color: white;
+float: right;
+font-size: 28px;
+font-weight: bold;
+
+}
+
+.close:hover,
+.close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+
+.scoreCard-header {
+padding: 2px 16px;
+-webkit-animation: bgcolor 20s infinite;
+animation: bgcolor 10s infinite;
+-webkit-animation-direction: alternate;
+animation-direction: alternate;
+color: white;
+}
+
+#instructions {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+-webkit-animation-name: fadeIn; /* Fade in the background */
+-webkit-animation-duration: 0.4s;
+animation-name: fadeIn;
+animation-duration: 0.4s;
+font-family: 'Poppins';
+}
+
+.instruct-content {
+position: fixed;
+bottom: 0;
+background-color: #fefefe;
+width: 100%;
+-webkit-animation-name: slideIn;
+-webkit-animation-duration: 0.4s;
+animation-name: slideIn;
+animation-duration: 0.4s
+}
+
+.instruct-header {
+padding: 2px 16px;
+-webkit-animation: bgcolor 20s infinite;
+animation: bgcolor 10s infinite;
+-webkit-animation-direction: alternate;
+animation-direction: alternate;
+color: white;
+}
+
+.instruct-body {padding: 2px 16px;}
+
+.instruct-footer {
+padding: 2px 16px;
+-webkit-animation: bgcolor 20s infinite;
+animation: bgcolor 10s infinite;
+-webkit-animation-direction: alternate;
+animation-direction: alternate;
+color: white;
+}
+
+@-webkit-keyframes slideIn {
+from {bottom: -300px; opacity: 0} 
+to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+from {bottom: -300px; opacity: 0}
+to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+from {opacity: 0} 
+to {opacity: 1}
+}
+
+@keyframes fadeIn {
+from {opacity: 0} 
+to {opacity: 1}
+}
+
+.close2 {
+color: white;
+float: right;
+font-size: 28px;
+font-weight: bold;
+
+}
+
+.close2:hover,
+.close2:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}

@@ -1,0 +1,100 @@
+<html>
+<head><title>Boggle: The Game!</title>
+
+<!-- J-Query (Ended up using getElementById though) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Main JS script with all the functionality for game -->
+<script src="main.js"></script>
+
+<!-- Poppins font for all the text -->
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+<!-- Main CSS Styling for all the elements -->
+<link href='main.css' rel='stylesheet'>
+
+<!-- The dictionary with all the valid english words -->
+<script src="words.js"></script>
+
+
+</head>
+
+<body onmouseup="stop()">
+
+  <!-- The Pop-up for Instructions -->
+  <div id="instructions">
+    <div class="instruct-content">
+      <div class="instruct-header">
+        <span class="close">&times;</span>
+        <h2>Don't know how to play Boggle?</h2>
+      </div>
+      <div class="instruct-body">
+        <p>Boggle is a <b>really simple game</b> to play. <br> Just hit the <b>'shake cubes'</b> button and then letters will appear in the boxes. <br>
+        Your goal to create <b>as many words as possible</b> just by using the letters provided to you. <br> Also, you can only go to the <b>closest letter</b><br>
+      that is next to a letter. <br>
+    Easy right? <b>Enjoy the game!</b></p>
+      </div>
+      <div class="instruct-footer">
+        <h3>Made by Vansh Sethi!</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Pop-up for the User's Score -->
+  <div id="scoreCard">
+    <div class="scoreCard-content">
+      <div class="scoreCard-header">
+        <span class="close2">&times;</span>
+        <h2 id="scoreCard-headerText">You got a score of:</h2>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- The Game -->
+  <div class='game' id="gameYes">
+    <!-- Title & Buttons -->
+    <h1 style="text-align: center; color: white; font-size: 5vw; padding-top: 0.3vw; font-family: 'Poppins'; padding-left: 6vh; display: inline;"><b>BOGGLE!<span style="font-size: 3.8vw;"><sup>™</sup></span></b> <span style="font-size: 6vh;">- Vansh S.</span></h1>
+    <button class="buttonStyle" style="float:right" onclick="runGame()" id="gameButton">Shake the Cubes!</button> <button onclick="showInstructions()" style="float:right"class="buttonStyle">How to Play</button>
+    <div style="display: flex;" class="setup">
+
+      <!-- CSS-Grid with the blocks for Boggle -->
+      <div class='grid-container'>
+          <div class='grid-item' id="grid1" onmouseover="mouseDown(1)" onmousedown="activate(1)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid2" onmouseover="mouseDown(2)" onmousedown="activate(2)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid3" onmouseover="mouseDown(3)" onmousedown="activate(3)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid4" onmouseover="mouseDown(4)" onmousedown="activate(4)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid5" onmouseover="mouseDown(5)" onmousedown="activate(5)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid6" onmouseover="mouseDown(6)" onmousedown="activate(6)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid7" onmouseover="mouseDown(7)" onmousedown="activate(7)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid8" onmouseover="mouseDown(8)" onmousedown="activate(8)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid9" onmouseover="mouseDown(9)" onmousedown="activate(9)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid10" onmouseover="mouseDown(10)" onmousedown="activate(10)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid11" onmouseover="mouseDown(11)" onmousedown="activate(11)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid12" onmouseover="mouseDown(12)" onmousedown="activate(12)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid13" onmouseover="mouseDown(13)" onmousedown="activate(13)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid14" onmouseover="mouseDown(14)" onmousedown="activate(14)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid15" onmouseover="mouseDown(15)" onmousedown="activate(15)" onmouseup="stop()" draggable="false"> </div>
+          <div class='grid-item' id="grid16" onmouseover="mouseDown(16)" onmousedown="activate(16)" onmouseup="stop()" draggable="false"> </div>
+      </div>
+
+      <!-- Display fields for game -->
+      <div class='grid-for-user'>
+        <!-- Time field -->
+        <input id='timerField1' type="text" value="Time: 2:00" disabled>
+        <!-- Score field -->
+        <input id='timerField2' type="text" value="Score: 0" disabled>
+        <!-- Inputted word field -->
+        <input id='currentWord' type="text" value="Current Word: " disabled>
+        <!-- Word log field -->
+        <div contenteditable="false" id="log">Words Submitted:‎‎‎ </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
